@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>טל רובין | מדע, ים וניהול אופרטיבי</title>
+    <style>
+        /* משתני צבעים מעודכנים - מעבר מוחלט לגווני כחול מגוונים, עמוקים ונעימים, ללא גווני ירוק/טורקיז */
+        :root {
+            --primary: #0077b6;      /* כחול ים קלאסי וחי */
+            --primary-dark: #03045e; /* כחול מעמקים כהה ואלגנטי */
+            --secondary: #0096c7;    /* כחול מים בהיר */
+            --accent: #ade8f4;       /* תכלת מים רענן */
+            --pop-color: #ffb703;    /* צבע זהב/שמש ניגודי עדין לכפתורים וקריאה לפעולה */
+            --pop-hover: #fb8500;
+            --bg-light: #f0f8ff;     /* רקע כחלחל בהיר מאוד */
+            --white: #ffffff;
+            --text-main: #1d3557;    /* טקסט כחול כהה קריא מאוד */
+            --text-muted: #457b9d;
+            --shadow-sm: 0 4px 10px rgba(0, 119, 182, 0.05);
+            --shadow-md: 0 12px 30px rgba(3, 4, 94, 0.08);
+            --radius: 20px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* איפוס אלמנטים */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Assistant', 'Segoe UI', system-ui, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* תפריט ניווט בעיצוב זכוכית (Glassmorphism) כחלחל */
+        header.navbar {
+            background-color: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 5%;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(0, 119, 182, 0.1);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            fill: var(--primary);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 16px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-dark);
+            background-color: rgba(173, 232, 244, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--primary);
+            user-select: none;
+        }
+
+        /* עיצוב כללי של אזורים */
+        section {
+            padding: 110px 8% 90px;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--pop-color), var(--primary));
+            margin: 12px auto 0;
+            border-radius: 10px;
+        }
+
+        /* כפתורים מודרניים */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, var(--pop-color) 0%, #e6a100 100%);
+            color: var(--primary-dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(255, 183, 3, 0.3);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 183, 3, 0.45);
+            background: linear-gradient(135deg, var(--pop-hover) 0%, #e6a100 100%);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            box-shadow: none;
+            margin-right: 15px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Hero Section בעיצוב כחול מעמקים מאוזן ומדויק */
+        #hero {
+            min-height: 100vh;
+            background: radial-gradient(circle at 80% 20%, var(--secondary) 0%, var(--primary) 50%, var(--primary-dark) 100%);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 120px;
+            position: relative;
+        }
+
+        .bg-circle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .circle-1 { width: 450px; height: 450px; top: 8%; left: -12%; }
+        .circle-2 { width: 300px; height: 300px; bottom: 12%; right: 4%; }
+
+        #hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            line-height: 1.3;
+            text-shadow: 0 4px 15px rgba(3, 4, 94, 0.3);
+            animation: fadeInDown 1s var(--transition);
+            max-width: 950px;
+        }
+
+        #hero h1 span {
+            color: var(--accent);
+            background: linear-gradient(to left, var(--accent), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #hero p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin-bottom: 45px;
+            font-weight: 300;
+            opacity: 0.95;
+            line-height: 1.8;
+            animation: fadeInUp 1s var(--transition) 0.2s forwards;
+        }
+
+        .hero-ctas {
+            animation: fadeInUp 1s var(--transition) 0.4s forwards;
+        }
+
+        /* מדור עליי משופר - עם גרפיקה ורקע מבוסס מרחבי ים ומדע */
+        #about {
+            background-color: var(--white);
+        }
+
+        .about-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #f0f8ff 0%, #e2effa 100%);
+            padding: 55px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border-right: 6px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* אייקון רקע דקורטיבי ומגניב במיוחד - שילוב הגה ספינה ומבנה מולקולרי מדעי */
+        .about-bg-icon {
+            position: absolute;
+            left: -20px;
+            bottom: -20px;
+            width: 220px;
+            height: 220px;
+            fill: rgba(0, 119, 182, 0.04);
+            pointer-events: none;
+        }
+
+        .about-text p {
+            font-size: 1.25rem;
+            margin-bottom: 25px;
+            line-height: 1.9;
+            color: var(--text-main);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* כרטיסי שירותים בעיצוב כחול נקי ומקצועי */
+        #services {
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid rgba(0, 119, 182, 0.08);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(0, 119, 182, 0.2);
+        }
+
+        .card:hover::before {
+            height: 10px;
+            background: var(--secondary);
+        }
+
+        .card-icon-container {
+            width: 80px;
+            height: 80px;
+            background-color: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+
+        .card:hover .card-icon-container {
+            background-color: var(--accent);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(173, 232, 244, 0.5);
+        }
+
+        .card-svg {
+            width: 42px;
+            height: 42px;
+            fill: var(--primary);
+        }
+
+        .card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .card p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* מדור יתרונות בעיצוב כחול עמוק */
+        #advantages {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+        }
+
+        #advantages .section-title {
+            color: var(--white);
+        }
+
+        .adv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .adv-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 35px 25px;
+            border-radius: var(--radius);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .adv-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: scale(1.03);
+            border-color: var(--accent);
+        }
+
+        .adv-icon-container {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .adv-svg {
+            width: 48px;
+            height: 48px;
+            fill: var(--accent);
+        }
+
+        .adv-item h4 {
+            color: var(--white);
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .adv-item p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* תהליך עבודה */
+        #process {
+            background-color: var(--white);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .step-num-icon-container {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+        }
+
+        .step-num {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 800;
+            box-shadow: 0 4px 10px rgba(0, 119, 182, 0.2);
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .step-icon {
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            width: 30px;
+            height: 30px;
+            fill: var(--primary-dark);
+            background: var(--accent);
+            border-radius: 50%;
+            padding: 6px;
+            z-index: 3;
+        }
+
+        .step:hover .step-num {
+            background: var(--primary-dark);
+            transform: rotate(360deg);
+            box-shadow: 0 4px 12px rgba(3, 4, 94, 0.3);
+        }
+
+        .step h3 {
+            font-size: 20px;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* המלצות לקוחות */
+        #testimonials {
+            background-color: var(--bg-light);
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .quote-icon-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            opacity: 0.12;
+        }
+        .quote-svg {
+            width: 50px;
+            height: 50px;
+            fill: var(--primary);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar-placeholder {
+            width: 45px;
+            height: 45px;
+            background-color: var(--accent);
+            color: var(--primary-dark);
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 15px;
+        }
+
+        /* שאלות נפוצות */
+        #faq {
+            background-color: var(--white);
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            margin-top: 30px;
+        }
+
+        .faq-item {
+            background: var(--bg-light);
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 119, 182, 0.08);
+        }
+
+        .faq-question {
+            padding: 22px 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background-color: var(--accent);
+            color: var(--primary-dark);
+        }
+
+        .faq-icon {
+            font-size: 20px;
+            font-weight: 400;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+            background-color: var(--white);
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px 25px;
+            max-height: 250px;
+            border-top: 1px solid rgba(0, 119, 182, 0.08);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* טופס יצירת קשר */
+        #contact {
+            background-color: var(--bg-light);
+        }
+
+        .contact-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 45px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0, 119, 182, 0.08);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 15px;
+        }
+
+        .form-input-container {
+            position: relative;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e2ece9;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            background-color: var(--bg-light);
+            transition: var(--transition);
+        }
+
+        .contact-form input { padding-left: 45px; }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--primary);
+            background-color: var(--white);
+            box-shadow: 0 0 0 4px rgba(0, 119, 182, 0.15);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            height: 140px;
+        }
+
+        .input-icon {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            fill: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .contact-form input:focus + .input-icon {
+            fill: var(--primary);
+        }
+
+        .success-msg {
+            display: none;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 700;
+            margin-top: 15px;
+            border: 1px solid #c8e6c9;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        /* פוטר */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 5px solid var(--pop-color);
+        }
+
+        footer p {
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+
+        footer .footer-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 12px;
+            opacity: 1;
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-svg {
+            width: 25px;
+            height: 25px;
+            fill: var(--white);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .footer-svg:hover {
+            fill: var(--accent);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* אנימציות */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* התאמה למובייל */
+        @media (max-width: 768px) {
+            header.navbar {
+                padding: 15px 6%;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background-color: var(--white);
+                padding: 25px;
+                box-shadow: var(--shadow-md);
+                gap: 15px;
+                border-top: 1px solid #e2ece9;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            #hero h1 {
+                font-size: 2.3rem;
+            }
+
+            #hero p {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 70px 6% 60px;
+            }
+
+            .about-wrapper {
+                padding: 30px 20px;
+            }
+
+            .contact-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- תפריט ניווט עליון -->
+    <header class="navbar">
+        <a href="#hero" class="logo-area">
+            <svg class="logo-icon" viewBox="0 0 24 24">
+                <path d="M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7Z"/>
+            </svg>
+            <span class="logo-text">טל רובין</span>
+        </a>
+        <div class="hamburger" id="hamburger">☰</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">עליי</a></li>
+            <li><a href="#services">שירותים</a></li>
+            <li><a href="#advantages">יתרונות</a></li>
+            <li><a href="#process">תהליך העבודה</a></li>
+            <li><a href="#testimonials">המלצות</a></li>
+            <li><a href="#faq">שאלות נפוצות</a></li>
+            <li><a href="#contact">צור קשר</a></li>
+        </ul>
+    </header>
+
+    <!-- Hero Section המעוצב מחדש באופן מדויק ואלגנטי -->
+    <section id="hero">
+        <div class="bg-circle circle-1"></div>
+        <div class="bg-circle circle-2"></div>
+        <h1>ממחקר מדעי במעמקי הים <span>לניהול אופרטיבי מנצח</span></h1>
+        <p>ביולוג ימי, סקיפר מוסמך, מנחה ומדריך מדע, ומנהל מעבדה ותפעול. מוביל פרויקטים ומחבר בין דיוק מחקרי, לוגיסטיקה ימית מורכבת והובלת תהליכים טכנולוגיים מתקדמים.</p>
+        <div class="hero-ctas">
+            <a href="#contact" class="btn">בואו נשתף פעולה</a>
+            <a href="#services" class="btn btn-secondary">השירותים שלי</a>
+        </div>
+    </section>
+
+    <!-- מדור עליי המשודרג - ללא אייקונים קטנים, עם גרפיקת רקע משולבת ורלוונטית -->
+    <section id="about" class="fade-in-section">
+        <h2 class="section-title">קצת עליי</h2>
+        <div class="about-wrapper">
+            <!-- אייקון רקע מורכב המשלב הגה ספינה ומבנה מולקולרי מדעי באופן מופשט -->
+            <svg class="about-bg-icon" viewBox="0 0 24 24">
+                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+            </svg>
+            <div class="about-text">
+                <p>שלום, אני טל רובין. עולם המדע, הים והניהול התפעולי שזורים זה בזה לאורך כל הדרך המקצועית שלי, מתוך תשוקה אמיתית למחקר, פיתוח ודיוק אופרטיבי בכל פרויקט.</p>
+                <p>כביולוג ימי וסקיפר מוסמך, צברתי ניסיון עשיר בתפעול כלי שיט והובלת פעילויות חקר חופיות. הסמכות הצלילה המדעיות והחילוץ שלי (AAUS) מאפשרות לי לפעול ברמת הבטיחות, הניהול והפיקוח הגבוהים ביותר בשטח ובסביבות עבודה מורכבות ומאתגרות.</p>
+                <p>במקביל, בניתי קריירה תפעולית מובילה בעולם ה-Agri-Tech כמנהל מעבדה וייצור. שם אני מיישם מתודולוגיות מחקר מדויקות, פיתוח פרויקטים, בקרת איכות קפדנית וניהול צוותים. השילוב הייחודי בין פתרון בעיות בשטח, הבנה מדעית מעמיקה ויכולת ניהול אופרטיבית רחבה מאפשר לי להביא ערך ייחודי לכל מיזם.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- מדור שירותים כחול ואלגנטי -->
+    <section id="services" class="fade-in-section">
+        <h2 class="section-title">שירותים ופתרונות מקצועיים</h2>
+        <div class="services-grid">
+            <!-- כרטיס 1 -->
+            <div class="card">
+                <div class="card-icon-container">
+                    <svg class="card-svg" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+                    </svg>
+                </div>
+                <h3>אופרציה ימית וצלילה מדעית</h3>
+                <p>שירותי סקיפר מוסמך לכלי שיט חופיים, ניהול ותפעול לוגיסטי של פעילויות שטח ימיות, וביצוע משימות צלילה מדעיות (AAUS) מורכבות בבטיחות מקסימלית.</p>
+            </div>
+            <!-- כרטיס 2 -->
+            <div class="card">
+                <div class="card-icon-container">
+                    <svg class="card-svg" viewBox="0 0 24 24">
+                        <path d="M19,3H5C3.89,3 3,3.89 3,5V19C3,20.11 3.89,21 5,21H19C20.11,21 21,20.11 21,19V5C21,3.89 20.11,3 19,3M19,19H5V5H19V19M17,17H7V15H17V17M17,13H7V11H17V13M17,9H7V7H17V9Z"/>
+                    </svg>
+                </div>
+                <h3>ניהול מעבדות ותפעול אגרי-טק</h3>
+                <p>ניהול כולל של מעבדות מחקר ופיתוח וקווי ייצור, הטמעת פרוטוקולים מדעיים מורכבים, ניהול צוותי עובדים, רכש לוגיסטי ובקרת איכות קפדנית.</p>
+            </div>
+            <!-- כרטיס 3 -->
+            <div class="card">
+                <div class="card-icon-container">
+                    <svg class="card-svg" viewBox="0 0 24 24">
+                        <path d="M12,3L1,9L12,15L21,10L12,3M12,5.18L18.74,8.85L12,12.52L5.26,8.85L12,5.18M3,12.09V14.59L12,19.59L21,14.59V12.09L12,17.09L3,12.09Z"/>
+                    </svg>
+                </div>
+                <h3>הדרכת מדעי הטבע והסביבה</h3>
+                <p>פיתוח והעברת תכנים חינוכיים ומדעיים מתקדמים, הרצאות מרתקות בתחום הביולוגיה הימית והאקולוגיה, והדרכה אקדמית ממוקדת במעבדות כימיה.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- מדור יתרונות מקצועיים -->
+    <section id="advantages" class="fade-in-section">
+        <h2 class="section-title">למה לבחור בי?</h2>
+        <div class="adv-grid">
+            <div class="adv-item">
+                <div class="adv-icon-container">
+                    <svg class="adv-svg" viewBox="0 0 24 24">
+                        <path d="M20,11H4V13H20V11M4,17H20V15H4V17M20,7H4V9H20V7M22,19a2,2,0,0,1,-2,2H4a2,2,0,0,1,-2,-2V5A2,2,0,0,1,4,3H20a2,2,0,0,1,2,2V19Z"/>
+                    </svg>
+                </div>
+                <h4>גמישות תפעולית יוצאת דופן</h4>
+                <p>היכולת לעבור בצורה חלקה ומהירה מניהול רצפת ייצור ומעבדה מתקדמת, ישירות לעמידה על סיפון או ביצוע משימות מחקר תת-ימיות.</p>
+            </div>
+            <div class="adv-item">
+                <div class="adv-icon-container">
+                    <svg class="adv-svg" viewBox="0 0 24 24">
+                        <path d="M12,3L1,9L12,15L21,10L12,3M12,5.18L18.74,8.85L12,12.52L5.26,8.85L12,5.18M3,12.09V14.59L12,19.59L21,14.59V12.09L12,17.09L3,12.09V14.59L12,19.59L21,14.59V12.09L12,17.09L3,12.09Z"/>
+                    </svg>
+                </div>
+                <h4>רקע אקדמי ויישומי משולב</h4>
+                <p>הבנה מדעית עמוקה כמתרגל אקדמי לכימיה יחד עם שנים של ניסיון מעשי, תעשייתי ואופרטיבי בחברות בחזית החקלאות.</p>
+            </div>
+            <div class="adv-item">
+                <div class="adv-icon-container">
+                    <svg class="adv-svg" viewBox="0 0 24 24">
+                        <path d="M12,1L3,5V11C3,16.55,6.84,21.74,12,23C17.16,21.74,21,16.55,21,11V5L12,1M12,3.1L19.1,6.3V11C19.1,15.58,16.12,19.7,12,20.9C7.88,19.7,4.9,15.58,4.9,11V6.3L12,3.1Z"/>
+                    </svg>
+                </div>
+                <h4>סטנדרט בטיחות ומקצועיות</h4>
+                <p>הסמכות מקצועיות רשמיות הכוללות רישיון משיט, צולל חילוץ וצולל מדעי מוסמך המבטיחות אפס פשרות בניהול סיכונים בשטח.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- תהליך העבודה -->
+    <section id="process" class="fade-in-section">
+        <h2 class="section-title">תהליך העבודה המשותף</h2>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-num-icon-container">
+                    <div class="step-num">1</div>
+                    <svg class="step-icon" viewBox="0 0 24 24">
+                        <path d="M19,19a2,2,0,0,1,-2,2H7a2,2,0,0,1,-2,-2V7a2,2,0,0,1,2,-2H17a2,2,0,0,1,2,2V19M17,17V9H7V17H17M15,15a1,1,0,0,1,-1,1H9a1,1,0,0,1,-1,-1V11a1,1,0,0,1,1,-1H14a1,1,0,0,1,1,1V15Z"/>
+                    </svg>
+                </div>
+                <h3>איפיון צרכים</h3>
+                <p>פגישת תיאום ראשונית להגדרת מטרות הפרויקט, הצרכים התפעוליים או יעדי המחקר.</p>
+            </div>
+            <div class="step">
+                <div class="step-num-icon-container">
+                    <div class="step-num">2</div>
+                    <svg class="step-icon" viewBox="0 0 24 24">
+                        <path d="M22,12a10,10,0,0,1,-10,10,10,10,0,0,1,-10,-10,10,10,0,0,1,10,-10,10,10,0,0,1,10,10M20,12A8,8,0,0,0,12,4,8,8,0,0,0,4,12,8,8,0,0,0,12,20a8,8,0,0,0,8,-8Z"/>
+                    </svg>
+                </div>
+                <h3>תכנון פרוטוקול</h3>
+                <p>בניית תוכנית עבודה תפעולית מפורטת, הכנת ציוד או פרוטוקולים מדעיים ייעודיים.</p>
+            </div>
+            <div class="step">
+                <div class="step-num-icon-container">
+                    <div class="step-num">3</div>
+                    <svg class="step-icon" viewBox="0 0 24 24">
+                        <path d="M12,2l0,3M19.07,4.93l-2.12,2.12M22,12l-3,0M19.07,19.07l-2.12,-2.12M12,22l0,-3M4.93,19.07l2.12,-2.12M2,12l3,0M4.93,4.93l2.12,2.12M12,7a5,5,0,0,0,-5,5,5,5,0,0,0,5,5,5,5,0,0,0,5,-5,5,5,0,0,0,-5,-5Z"/>
+                    </svg>
+                </div>
+                <h3>ביצוע וניהול שטח</h3>
+                <p>יציאה לפועל של התוכנית תוך ניהול לוגיסטי הדוק, פיקוח על הבטיחות ודיוק מדעי מרבי.</p>
+            </div>
+            <div class="step">
+                <div class="step-num-icon-container">
+                    <div class="step-num">4</div>
+                    <svg class="step-icon" viewBox="0 0 24 24">
+                        <path d="M19,3H5a2,2,0,0,0,-2,2V19a2,2,0,0,0,2,2H19a2,2,0,0,0,2,-2V5A2,2,0,0,0,19,3M19,19H5V5H19V19M17,17H7V15H17V17M17,13H7V11H17V13M17,9H7V7H17V9Z"/>
+                    </svg>
+                </div>
+                <h3>דוח וסיכום נתונים</h3>
+                <p>ניתוח התוצאות, עיבוד הממצאים והגשת דוח מסכם ומקצועי עם תובנות יישומיות המשכיות.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- המלצות לקוחות -->
+    <section id="testimonials" class="fade-in-section">
+        <h2 class="section-title">מה אומרים השותפים לדרך</h2>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <div class="quote-icon-container">
+                    <svg class="quote-svg" viewBox="0 0 24 24">
+                        <path d="M7.5,12.5a2,2,0,0,0,-2,-2,2,2,0,0,0,-2,2,2,2,0,0,0,2,2,2,2,0,0,0,2,-2M18.5,12.5a2,2,0,0,0,-2,-2,2,2,0,0,0,-2,2,2,2,0,0,0,2,2,2,2,0,0,0,2,-2M12,2A10,10,0,0,1,22,12,10,10,0,0,1,12,22,10,10,0,0,1,2,12,10,10,0,0,1,12,2Z"/>
+                    </svg>
+                </div>
+                <p class="testimonial-text">"טל הביא איתו למעבדה ולמערך הייצור סדר, דיוק ויכולת ניהול משימות יוצאת דופן ששיפרה משמעותית את האפקטיביות שלנו."</p>
+                <div class="testimonial-meta">
+                    <div class="avatar-placeholder">כ</div>
+                    <div class="testimonial-author">ד"ר א. כהן, תעשיית האגרי-טק</div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="quote-icon-container">
+                    <svg class="quote-svg" viewBox="0 0 24 24">
+                        <path d="M7.5,12.5a2,2,0,0,0,-2,-2,2,2,0,0,0,-2,2,2,2,0,0,0,2,2,2,2,0,0,0,2,-2M18.5,12.5a2,2,0,0,0,-2,-2,2,2,0,0,0,-2,2,2,2,0,0,0,2,2,2,2,0,0,0,2,-2M12,2A10,10,0,0,1,22,12,10,10,0,0,1,12,22,10,10,0,0,1,2,12,10,10,0,0,1,12,2Z"/>
+                    </svg>
+                </div>
+                <p class="testimonial-text">"המקצועיות של טל כסקיפר והידע שלו בביולוגיה ימית הפכו את פעילות איסוף הנתונים החופית שלנו לבטוחה, יעילה ומוצלחת מאוד."</p>
+                <div class="testimonial-meta">
+                    <div class="avatar-placeholder">מ</div>
+                    <div class="testimonial-author">צוות מחקר, מדעי הסביבה והים</div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="quote-icon-container">
+                    <svg class="quote-svg" viewBox="0 0 24 24">
+                        <path d="M7.5,12.5a2,2,0,0,0,-2,-2,2,2,0,0,0,-2,2,2,2,0,0,0,2,2,2,2,0,0,0,2,-2M18.5,12.5a2,2,0,0,0,-2,-2,2,2,0,0,0,-2,2,2,2,0,0,0,2,2,2,2,0,0,0,2,-2M12,2A10,10,0,0,1,22,12,10,10,0,0,1,12,22,10,10,0,0,1,2,12,10,10,0,0,1,12,2Z"/>
+                    </svg>
+                </div>
+                <p class="testimonial-text">"כסטודנטים, נהנינו מאוד מהדרכות המעבדה של טל. היכולת להסביר מושגים מורכבים בכימיה בצורה פשוטה היא נדירה."</p>
+                <div class="testimonial-meta">
+                    <div class="avatar-placeholder">ר</div>
+                    <div class="testimonial-author">רוני ל., המרכז האקדמי רופין</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- שאלות נפוצות -->
+    <section id="faq" class="fade-in-section">
+        <h2 class="section-title">שאלות נפוצות</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">לאילו קהלי יעד מתאימות הדרכות המדע והטבע? <span class="faq-icon">+</span></div>
+                <div class="faq-answer">
+                    <p>ההדרכות וההרצאות מותאמות אישית למגוון קהלים: החל ממוסדות אקדמיים וסטודנטים הזקוקים לחיזוק והדרכת מעבדות, דרך גופים וארגוני סביבה ועד לקבוצות פרטיות המחפשות תוכן מעשיר ואיכותי בביולוגיה ימית ואקולוגיה.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">מה המשמעות של הסמכת צלילה מדעית AAUS? <span class="faq-icon">+</span></div>
+                <div class="faq-answer">
+                    <p>הסמכה מטעם האקדמיה האמריקאית למדעי תת-הים (AAUS) מעידה על הכשרה קפדנית לעבודה וביצוע מחקרים מתחת למים. ההסמכה מאפשרת לי לתפעל ולנהל פרויקטים תת-ימיים מורכבים עד לעומק של 30 מטרים תוך עמידה בסטנדרטים המחמירים ביותר של בטיחות וניהול סיכונים.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">באילו סוגי מעבדות ותהליכי תפעול יש לך ניסיון? <span class="faq-icon">+</span></div>
+                <div class="faq-answer">
+                    <p>עיקר הניסיון שלי מגיע מתעשיית ה-Agri-Tech, שם ניהלתי מעבדות מחקר, מערכי ייצור, בקרת איכות חומרי גלם, רכש לוגיסטי ופיתוח של פרוטוקולי טיפול חקלאיים. אני מביא איתי ראייה רחבה המשלבת בין מדע מדויק לאופרציה תעשייתית.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- יצירת קשר -->
+    <section id="contact" class="fade-in-section">
+        <h2 class="section-title">בואו נתחיל לעבוד יחד</h2>
+        <div class="contact-box">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">שם מלא *</label>
+                    <div class="form-input-container">
+                        <input type="text" id="name" placeholder="השם שלכם" required>
+                        <svg class="input-icon" viewBox="0 0 24 24">
+                            <path d="M12,12c2.76,0,5,-2.24,5,-5a5,5,0,0,0,-10,0a5,5,0,0,0,5,5M12,14c-2.76,0,-8,1.38,-8,4v2H20v-2c0,-2.62,-5.24,-4,-8,-4Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">כתובת אימייל *</label>
+                    <div class="form-input-container">
+                        <input type="email" id="email" placeholder="name@example.com" required>
+                        <svg class="input-icon" viewBox="0 0 24 24">
+                            <path d="M22,6C22,4.9,21.1,4,20,4H4C2.9,4,2,4.9,2,6V18C2,19.1,2.9,20,4,20H20C21.1,20,22,19.1,22,18V6M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6M22,6C22,4.9,21.1,4,20,4H4C2.9,4,2,4.9,2,6V18C2,19.1,2.9,20,4,20H20C21.1,20,22,19.1,22,18V6M22,6V6V6V6Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">מספר טלפון</label>
+                    <div class="form-input-container">
+                        <input type="tel" id="phone" placeholder="050-0000000">
+                        <svg class="input-icon" viewBox="0 0 24 24">
+                            <path d="M6.62,10.79a15.15,15.15,0,0,0,6.59,6.59l2.2,-2.2c0.28,-0.28,0.67,-0.36,1.02,-0.26c1.12,0.37,2.33,0.57,3.57,0.57c0.55,0,1,0.45,1,1v3.5c0,0.55,-0.45,1,-1,1c-9.39,0,-17,-7.61,-17,-17c0,-0.55,0.45,-1,1,-1h3.5c0.55,0,1,0.45,1,1c0,1.24,0.2,2.45,0.57,3.57c0.1,0.35,0.02,0.74,-0.26,1.02l-2.2,2.2Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">פרטי הפרויקט או הפנייה *</label>
+                    <textarea id="message" placeholder="איך אוכל לסייע לכם בפרויקט הבא?" required></textarea>
+                </div>
+                <button type="submit" class="btn">שליחת פנייה</button>
+                <div class="success-msg" id="successMsg">ההודעה נשלחה בהצלחה! תודה רבה, אהיה איתך בקשר בהקדם.</div>
+            </form>
+        </div>
+    </section>
+
+    <!-- פוטר -->
+    <footer>
+        <div class="footer-title">טל רובין</div>
+        <p>ביולוגיה ימית | אופרציה וצלילה מדעית | ניהול מעבדות ותפעול אגרי-טק</p>
+        <p>&copy; 2026 כל הזכויות שמורות.</p>
+        <div class="footer-icons">
+            <a href="https://linkedin.com/" target="_blank">
+                <svg class="footer-svg" viewBox="0 0 24 24">
+                    <path d="M19,3H5C3.89,3,3,3.89,3,5V19C3,20.11,3.89,21,5,21H19C20.11,21,21,20.11,21,19V5C21,3.89,20.11,3,19,3M9,17H6.47V10H9V17M7.74,8.92A1.47,1.47,0,1,1,9.2,7.45A1.47,1.47,0,0,1,7.74,8.92M18,17H15.47V13.32C15.47,12.41,15.46,11.24,14.2,11.24C12.91,11.24,12.72,12.24,12.72,13.26V17H10.19V10H12.61V11H12.64C13,10.32,13.88,9.75,15.1,9.75C17.61,9.75,18,11.28,18,13.39V17Z"/>
+                </svg>
+            </a>
+            <a href="mailto:example@example.com">
+                <svg class="footer-svg" viewBox="0 0 24 24">
+                    <path d="M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6M22,6C22,4.9,21.1,4,20,4H4C2.9,4,2,4.9,2,6V18C2,19.1,2.9,20,4,20H20C21.1,20,22,19.1,22,18V6M22,6V6V6V6Z"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <!-- סקריפטים מובנים (JavaScript) -->
+    <script>
+        // ניהול תפריט המובייל
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // סגירת התפריט בעת לחיצה על קישור ניווט כלשהו במובייל
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.textContent = '☰';
+            });
+        });
+
+        // רכיב שאלות נפוצות (אקורדיון חלק)
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                
+                // סגירת אייטמים אחרים פתוחים לחווית משתמש חלקה
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== parent) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+
+                parent.classList.toggle('active');
+            });
+        });
+
+        // ניהול שליחת טופס יצירת קשר והצגת הודעת הצלחה מעוצבת
+        const contactForm = document.getElementById('contactForm');
+        const successMsg = document.getElementById('successMsg');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            successMsg.style.display = 'block';
+            contactForm.reset();
+            
+            // העלמת הודעת ההצלחה באופן אוטומטי לאחר 5 שניות
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 5000);
+        });
+
+        // מנגנון אנימציות גלילה עדינות (Fade-in עם IntersectionObserver)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
