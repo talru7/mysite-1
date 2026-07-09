@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>טל רובין | הדרכה אקדמית בכימיה לסטודנטים</title>
+  <meta name="description" content="טל רובין, מנהל מעבדה ומתרגל אקדמי. הדרכה אקדמית בכימיה לסטודנטים, שיעורים פרטיים, מרתונים והכנה למבחנים." />
+  <meta name="keywords" content="טל רובין, כימיה, שיעורים פרטיים בכימיה, כימיה לסטודנטים, כימיה אורגנית, כימיה פיזיקלית, כימיה כללית, ביולוגיה של התא, אוקיינוגרפיה, ימאות, מרתון כימיה" />
+  <meta name="theme-color" content="#2e5e4e" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="טל רובין | הדרכה אקדמית בכימיה" />
+  <meta property="og:description" content="להבין את החומר ולהגיע רגועים למבחן." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="tal.png" />
+  <meta property="og:locale" content="he_IL" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232e5e4e'/%3E%3Ccircle cx='18' cy='32' r='6' fill='%23f4ead9'/%3E%3Ccircle cx='44' cy='22' r='5' fill='%23f4ead9'/%3E%3Ccircle cx='43' cy='44' r='4' fill='%23f4ead9'/%3E%3Cpath d='M24 30 39 24M24 35 39 42' stroke='%23f4ead9' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <style>
+    :root {
+      --bg: #faf8f1;
+      --paper: #fffdf8;
+      --paper-2: #f2eddf;
+      --text: #17231d;
+      --muted: #5a675f;
+      --green: #2e5e4e;
+      --green-dark: #19382d;
+      --green-soft: #e6efe9;
+      --sand: #e8dfc8;
+      --line: rgba(46, 94, 78, 0.16);
+      --shadow: 0 22px 70px rgba(25, 56, 45, 0.10);
+      --shadow-soft: 0 14px 38px rgba(25, 56, 45, 0.08);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Heebo", "Assistant", sans-serif;
+      color: var(--text);
+      line-height: 1.72;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(46, 94, 78, 0.10), transparent 28%),
+        radial-gradient(circle at 90% 18%, rgba(232, 223, 200, 0.95), transparent 32%),
+        var(--bg);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: 0.42;
+      background-image:
+        radial-gradient(circle at 12% 20%, rgba(46,94,78,0.22) 0 3px, transparent 4px),
+        radial-gradient(circle at 17% 24%, rgba(46,94,78,0.14) 0 2px, transparent 3px),
+        radial-gradient(circle at 21% 17%, rgba(46,94,78,0.12) 0 2px, transparent 3px),
+        linear-gradient(35deg, transparent 49.2%, rgba(46,94,78,0.08) 49.6%, rgba(46,94,78,0.08) 50.4%, transparent 50.8%),
+        linear-gradient(-30deg, transparent 49.2%, rgba(46,94,78,0.07) 49.6%, rgba(46,94,78,0.07) 50.4%, transparent 50.8%),
+        radial-gradient(circle at 82% 28%, rgba(46,94,78,0.15) 0 3px, transparent 4px),
+        radial-gradient(circle at 86% 32%, rgba(46,94,78,0.11) 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 36%, rgba(46,94,78,0.11) 0 2px, transparent 3px);
+      background-repeat: no-repeat;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      overflow: hidden;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250, 248, 241, 0.86);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(46,94,78,0.12);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      min-width: max-content;
+    }
+
+    .brand strong {
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin-top: -4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease, border-color 220ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
+      box-shadow: 0 16px 38px rgba(46,94,78,0.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+      box-shadow: 0 18px 46px rgba(46,94,78,0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.82);
+      color: var(--green-dark);
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero {
+      padding: clamp(56px, 8vw, 108px) 0 clamp(62px, 8vw, 112px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      gap: clamp(42px, 7vw, 88px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 8px 15px;
+      border-radius: 999px;
+      background: rgba(46,94,78,0.09);
+      color: var(--green-dark);
+      border: 1px solid rgba(46,94,78,0.13);
+      font-weight: 800;
+      font-size: 0.96rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 7px rgba(46,94,78,0.10);
+    }
+
+    h1 {
+      margin: 22px 0 20px;
+      max-width: 760px;
+      font-size: clamp(3rem, 6.7vw, 5.9rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+      color: var(--green-dark);
+    }
+
+    .hero-lead {
+      max-width: 660px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1.14rem, 1.8vw, 1.36rem);
+    }
+
+    .hero-statement {
+      margin-top: 24px;
+      max-width: 650px;
+      padding: 22px 24px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(46,94,78,0.12);
+      box-shadow: var(--shadow-soft);
+      font-size: clamp(1.08rem, 1.55vw, 1.25rem);
+      line-height: 1.65;
+    }
+
+    .hero-statement strong {
+      color: var(--green-dark);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+      align-items: center;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .trust-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.58);
+      border: 1px solid rgba(46,94,78,0.10);
+      border-radius: 999px;
+      padding: 8px 13px;
+    }
+
+    .hero-visual {
+      position: relative;
+      isolation: isolate;
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+    }
+
+    .photo-shell {
+      position: relative;
+      isolation: isolate;
+      width: min(100%, 420px);
+    }
+
+    .photo-molecule {
+      position: absolute;
+      z-index: 0;
+      inset: auto -58px -44px auto;
+      width: 295px;
+      opacity: 0.42;
+      color: var(--green);
+      transform: rotate(-12deg);
+      pointer-events: none;
+    }
+
+    .photo-card {
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+      padding: 12px;
+      border-radius: 42px;
+      background: var(--paper);
+      border: 1px solid rgba(46,94,78,0.13);
+      box-shadow: var(--shadow);
+    }
+
+    .photo-card img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: block;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 32px;
+    }
+
+    .mini-card {
+      position: absolute;
+      z-index: 4;
+      left: -22px;
+      bottom: 48px;
+      max-width: 218px;
+      padding: 17px 19px;
+      border-radius: 22px;
+      background: rgba(25,56,45,0.95);
+      color: white;
+      box-shadow: 0 24px 50px rgba(25,56,45,0.18);
+      font-size: 0.95rem;
+    }
+
+    .mini-card strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 2px;
+    }
+
+    .section {
+      position: relative;
+      padding: clamp(76px, 9vw, 118px) 0;
+    }
+
+    .section.alt {
+      background:
+        radial-gradient(circle at 18% 16%, rgba(46,94,78,0.06), transparent 34%),
+        var(--paper-2);
+    }
+
+    .section.dark {
+      background:
+        radial-gradient(circle at 20% 0%, rgba(232,223,200,0.13), transparent 32%),
+        linear-gradient(135deg, var(--green-dark), #10281f);
+      color: white;
+      overflow: hidden;
+    }
+
+    .section.dark .section-note,
+    .section.dark .small {
+      color: rgba(255,255,255,0.74);
+    }
+
+    .section.dark .section-head h2 {
+      color: white;
+    }
+
+    .section.dark .card {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.14);
+      color: white;
+    }
+
+    .section.dark .card h3 {
+      color: white;
+    }
+
+    .section.dark .card p {
+      color: rgba(255,255,255,0.72);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1.1fr);
+      gap: 42px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .section-head h2,
+    .about-main h2,
+    .contact-panel h2 {
+      margin: 0;
+      color: var(--green-dark);
+      font-size: clamp(2.2rem, 4vw, 3.25rem);
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+    }
+
+    .section-note {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(1.06rem, 1.65vw, 1.2rem);
+      line-height: 1.82;
+    }
+
+    .molecule-break {
+      position: absolute;
+      z-index: 0;
+      left: 4%;
+      top: 7%;
+      width: 220px;
+      opacity: 0.18;
+      color: var(--green);
+      pointer-events: none;
+    }
+
+    .fit-list {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .fit-item {
+      min-height: 154px;
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(46,94,78,0.13);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      font-size: 1.06rem;
+    }
+
+    .check {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+      gap: 56px;
+      align-items: start;
+    }
+
+    .about-main {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(46,94,78,0.12);
+      border-radius: var(--radius-xl);
+      padding: clamp(30px, 4vw, 48px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .about-main p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.3vw, 1.15rem);
+    }
+
+    .about-main p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .about-item,
+    .card,
+    details {
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(46,94,78,0.13);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .about-item {
+      padding: 24px;
+    }
+
+    .about-item strong {
+      display: block;
+      color: var(--green-dark);
+      font-size: 1.2rem;
+      margin-bottom: 7px;
+    }
+
+    .about-item span {
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .cards-4,
+    .process-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      padding: 25px;
+    }
+
+    .card h3 {
+      margin: 14px 0 9px;
+      color: var(--green-dark);
+      font-size: 1.26rem;
+      line-height: 1.25;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .mid-cta-section {
+      padding: 38px 0;
+      background: transparent;
+    }
+
+    .mid-cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 22px;
+      align-items: center;
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      border-radius: var(--radius-xl);
+      padding: clamp(24px, 4vw, 34px);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .mid-cta h3 {
+      margin: 0 0 6px;
+      font-size: clamp(1.55rem, 2.5vw, 2.2rem);
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+    }
+
+    .mid-cta p {
+      margin: 0;
+      color: rgba(255,255,255,0.75);
+      font-size: 1.08rem;
+    }
+
+    .topics {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+      gap: 22px;
+    }
+
+    .topic-main {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(46,94,78,0.94), rgba(25,56,45,0.98)),
+        var(--green-dark);
+      color: white;
+      border-radius: var(--radius-xl);
+      padding: clamp(30px, 4vw, 46px);
+      box-shadow: var(--shadow);
+    }
+
+    .topic-main::before {
+      content: "C6H6";
+      position: absolute;
+      left: 26px;
+      top: 12px;
+      color: rgba(255,255,255,0.08);
+      font-weight: 900;
+      font-size: clamp(3rem, 8vw, 7rem);
+      letter-spacing: -0.06em;
+    }
+
+    .topic-main h3,
+    .topic-main p,
+    .chips {
+      position: relative;
+      z-index: 1;
+    }
+
+    .topic-main h3 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3vw, 2.65rem);
+      line-height: 1.15;
+    }
+
+    .topic-main p {
+      max-width: 670px;
+      margin: 0 0 24px;
+      color: rgba(255,255,255,0.78);
+      font-size: 1.1rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 8px 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: white;
+      font-weight: 800;
+    }
+
+    .topic-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .proof-box {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1.1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .proof-highlight {
+      background: var(--green-dark);
+      color: white;
+      border-radius: var(--radius-xl);
+      padding: clamp(28px, 4vw, 42px);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .proof-highlight strong {
+      font-size: clamp(1.42rem, 2.5vw, 2.08rem);
+      line-height: 1.35;
+      letter-spacing: -0.03em;
+    }
+
+    .proof-highlight span {
+      margin-top: 16px;
+      color: rgba(255,255,255,0.72);
+      font-size: 1.06rem;
+    }
+
+    .testimonial-slots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .testimonial-slot {
+      min-height: 170px;
+      padding: 22px;
+      border-radius: 22px;
+      background: var(--paper);
+      border: 1px dashed rgba(46,94,78,0.28);
+    }
+
+    .testimonial-slot strong {
+      display: block;
+      color: var(--green-dark);
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .testimonial-slot span {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .quote-placeholder {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin: 0;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    details {
+      padding: 18px 22px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--green-dark);
+      font-size: 1.08rem;
+    }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .contact-panel,
+    .form-card {
+      border-radius: var(--radius-xl);
+      padding: clamp(28px, 4vw, 44px);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel {
+      background: var(--green-dark);
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .contact-panel h2 {
+      color: white;
+    }
+
+    .contact-panel p {
+      color: rgba(255,255,255,0.76);
+      font-size: 1.06rem;
+    }
+
+    .form-card {
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(46,94,78,0.13);
+    }
+
+    .form-card form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    label {
+      font-weight: 800;
+      color: var(--green-dark);
+      font-size: 1.02rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      min-height: 52px;
+      border: 1px solid rgba(46,94,78,0.18);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.94);
+      padding: 13px 15px;
+      font-family: inherit;
+      font-size: 1.03rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 4px rgba(46,94,78,0.12);
+    }
+
+    .form-note {
+      min-height: 22px;
+      margin: 0;
+      color: var(--green);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .footer {
+      padding: 36px 0 46px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      z-index: 80;
+      left: 18px;
+      bottom: 18px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 18px 42px rgba(25,56,45,0.24);
+      text-decoration: none;
+      transition: transform 220ms ease, background 220ms ease;
+    }
+
+    .floating-whatsapp:hover {
+      transform: translateY(-3px) scale(1.03);
+      background: var(--green-dark);
+    }
+
+    .floating-whatsapp svg {
+      width: 27px;
+      height: 27px;
+      fill: currentColor;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 620ms ease, transform 620ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card,
+    .fit-item,
+    .about-item,
+    details,
+    .chip,
+    .btn {
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
+    }
+
+    .card:hover,
+    .fit-item:hover,
+    .about-item:hover,
+    details:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 26px 64px rgba(25,56,45,0.13);
+      border-color: rgba(46,94,78,0.25);
+    }
+
+    .chip:hover {
+      transform: translateY(-2px);
+    }
+
+    .card:hover .icon svg {
+      transform: rotate(-7deg) scale(1.05);
+    }
+
+    .icon svg {
+      transition: transform 220ms ease;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .section-head,
+      .about-grid,
+      .topics,
+      .proof-box,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: auto;
+        padding-top: 8px;
+      }
+
+      .fit-list,
+      .cards-4,
+      .process-cards,
+      .testimonial-slots {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .mid-cta {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        background:
+          radial-gradient(circle at 50% 0%, rgba(232, 223, 200, 0.82), transparent 28%),
+          var(--bg);
+      }
+
+      body::before,
+      .molecule-break {
+        opacity: 0.10;
+      }
+
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .topbar {
+        position: sticky;
+      }
+
+      .nav {
+        min-height: 66px;
+        padding: 10px 0;
+        gap: 12px;
+      }
+
+      .brand strong {
+        font-size: 1.08rem;
+      }
+
+      .brand span {
+        display: none;
+      }
+
+      .nav .btn {
+        min-height: 40px;
+        padding: 9px 14px;
+        font-size: 0.92rem;
+        white-space: nowrap;
+      }
+
+      .hero {
+        padding: 34px 0 54px;
+      }
+
+      .hero-grid {
+        gap: 30px;
+      }
+
+      .eyebrow {
+        font-size: 0.88rem;
+        padding: 7px 12px;
+      }
+
+      h1 {
+        margin: 18px 0 16px;
+        font-size: clamp(2.55rem, 13vw, 4rem);
+        line-height: 1.04;
+        letter-spacing: -0.052em;
+      }
+
+      .hero-lead {
+        font-size: 1.08rem;
+        line-height: 1.75;
+      }
+
+      .hero-statement {
+        margin-top: 18px;
+        padding: 18px;
+        font-size: 1.05rem;
+        border-radius: 20px;
+      }
+
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .actions .btn,
+      .mid-cta .btn {
+        width: 100%;
+      }
+
+      .trust-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .trust-row span {
+        justify-content: center;
+      }
+
+      .photo-shell {
+        width: min(100%, 330px);
+        margin-inline: auto;
+      }
+
+      .photo-molecule {
+        width: 205px;
+        inset: auto -28px -30px auto;
+        opacity: 0.18;
+      }
+
+      .photo-card {
+        border-radius: 30px;
+        padding: 9px;
+      }
+
+      .photo-card img {
+        border-radius: 23px;
+        max-height: 430px;
+      }
+
+      .mini-card {
+        position: relative;
+        inset: auto;
+        left: auto;
+        bottom: auto;
+        margin: -22px auto 0;
+        max-width: 92%;
+        padding: 14px 16px;
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .section-head {
+        gap: 12px;
+        margin-bottom: 26px;
+      }
+
+      .section-head h2,
+      .about-main h2,
+      .contact-panel h2 {
+        font-size: clamp(2rem, 10vw, 2.75rem);
+        line-height: 1.1;
+      }
+
+      .section-note {
+        font-size: 1.04rem;
+        line-height: 1.75;
+      }
+
+      .fit-list,
+      .cards-4,
+      .process-cards,
+      .testimonial-slots {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .fit-item {
+        min-height: auto;
+        padding: 18px;
+        gap: 12px;
+      }
+
+      .about-grid,
+      .topics,
+      .proof-box,
+      .contact-grid {
+        gap: 16px;
+      }
+
+      .about-main,
+      .about-item,
+      .card,
+      .proof-highlight,
+      .contact-panel,
+      .form-card,
+      .topic-main,
+      details {
+        border-radius: 22px;
+      }
+
+      .about-main,
+      .contact-panel,
+      .form-card,
+      .topic-main,
+      .proof-highlight {
+        padding: 22px;
+      }
+
+      .card,
+      .about-item,
+      details,
+      .testimonial-slot {
+        padding: 18px;
+      }
+
+      .cards-4 .card,
+      .process-card {
+        min-height: auto;
+      }
+
+      .topic-main::before {
+        font-size: 3.8rem;
+        top: 6px;
+        left: 16px;
+      }
+
+      .chips {
+        gap: 8px;
+      }
+
+      .chip {
+        min-height: 36px;
+        padding: 7px 12px;
+        font-size: 0.92rem;
+      }
+
+      .mid-cta {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      .mid-cta p,
+      .contact-panel p {
+        font-size: 1rem;
+      }
+
+      .proof-highlight strong {
+        font-size: 1.38rem;
+      }
+
+      .floating-whatsapp {
+        width: 54px;
+        height: 54px;
+        left: 14px;
+        bottom: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  
+    /* V14 mobile fix */
+    .trust-row {
+      gap: 18px;
+    }
+
+    .trust-row span {
+      background: transparent !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      position: relative;
+      color: var(--muted);
+    }
+
+    .trust-row span::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      opacity: 0.55;
+      display: inline-block;
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 24px !important;
+        padding-bottom: 46px !important;
+      }
+
+      .hero-grid {
+        gap: 24px !important;
+      }
+
+      .hero-copy {
+        text-align: right;
+      }
+
+      h1 {
+        font-size: clamp(2.18rem, 10.6vw, 3.35rem) !important;
+        line-height: 1.08 !important;
+        letter-spacing: -0.045em !important;
+        margin-top: 16px !important;
+        margin-bottom: 14px !important;
+        max-width: 100% !important;
+      }
+
+      .hero-lead {
+        font-size: 1.02rem !important;
+        line-height: 1.72 !important;
+      }
+
+      .hero-statement {
+        margin-top: 16px !important;
+        padding: 17px !important;
+        font-size: 1.02rem !important;
+        line-height: 1.65 !important;
+        border-radius: 20px !important;
+      }
+
+      .actions {
+        margin-top: 18px !important;
+        gap: 10px !important;
+      }
+
+      .hero .actions .btn {
+        min-height: 54px;
+      }
+
+      .hero .actions .btn-secondary {
+        background: #fffdf8 !important;
+        border: 1px solid rgba(46, 94, 78, 0.15) !important;
+        box-shadow: none !important;
+      }
+
+      .trust-row {
+        display: block !important;
+        margin-top: 18px !important;
+        font-size: 0.95rem !important;
+      }
+
+      .trust-row span {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 9px !important;
+        margin-bottom: 8px !important;
+        text-align: right !important;
+      }
+
+      .trust-row span:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .photo-shell {
+        width: min(100%, 310px) !important;
+      }
+
+      .mini-card {
+        margin-top: -18px !important;
+      }
+
+      .floating-whatsapp {
+        bottom: 18px !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="חזרה לראש העמוד">
+          <strong>טל רובין</strong>
+          <span>כימיה • מדעים • הדרכה אקדמית</span>
+        </a>
+
+        <nav class="nav-links" aria-label="ניווט ראשי">
+          <a href="#fit">למי זה מתאים</a>
+          <a href="#about">אודות</a>
+          <a href="#topics">מה לומדים</a>
+          <a href="#process">איך זה עובד</a>
+          <a href="#contact">יצירת קשר</a>
+        </nav>
+
+        <a class="btn btn-primary" href="https://wa.me/972508148081?text=%D7%94%D7%99%D7%99%20%D7%98%D7%9C%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A2%D7%A9%D7%95%D7%AA%20%D7%A1%D7%93%D7%A8%20%D7%91%D7%97%D7%95%D7%9E%D7%A8" target="_blank" rel="noopener">בואו נעשה סדר</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <span class="eyebrow">הדרכה אקדמית בכימיה לסטודנטים</span>
+            <h1>להבין את החומר ולהגיע רגועים למבחן.</h1>
+
+            <p class="hero-lead">
+              אני טל רובין, מנהל מעבדה, מתרגל אקדמי ומדריך במדעים מאז 2017. אני עוזר לסטודנטים לעשות סדר בכימיה, להבין את ההיגיון ולתרגל בצורה ברורה ומעשית.
+            </p>
+
+            <div class="hero-statement">
+              <strong>המטרה שלי היא לא להעביר אותך את המבחן.</strong><br />
+              המטרה שלי היא לגרום לכימיה סוף סוף להיות הגיונית.
+            </div>
+
+            <div class="actions">
+              <a class="btn btn-primary" href="https://wa.me/972508148081?text=%D7%94%D7%99%D7%99%20%D7%98%D7%9C%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A2%D7%A9%D7%95%D7%AA%20%D7%A1%D7%93%D7%A8%20%D7%91%D7%97%D7%95%D7%9E%D7%A8" target="_blank" rel="noopener">בואו נעשה סדר בחומר</a>
+              <a class="btn btn-secondary" href="#contact">השארת פרטים</a>
+            </div>
+
+            <div class="trust-row" aria-label="פרטי אמון">
+              <span>מנהל מעבדה</span>
+              <span>מתרגל אקדמי ברופין</span>
+              <span>מלמד מאז 2017</span>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="photo-shell">
+              <svg class="photo-molecule" aria-hidden="true" viewBox="0 0 260 220">
+                <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round">
+                  <path d="M61 108 103 70 154 91 194 54" />
+                  <path d="M103 70 116 128 165 150" />
+                  <path d="M154 91 165 150 211 168" />
+                  <path d="M61 108 84 164 116 128" />
+                </g>
+                <g fill="currentColor">
+                  <circle cx="61" cy="108" r="13" />
+                  <circle cx="103" cy="70" r="10" />
+                  <circle cx="154" cy="91" r="12" />
+                  <circle cx="194" cy="54" r="9" />
+                  <circle cx="116" cy="128" r="11" />
+                  <circle cx="165" cy="150" r="10" />
+                  <circle cx="211" cy="168" r="12" />
+                  <circle cx="84" cy="164" r="8" />
+                </g>
+              </svg>
+
+              <div class="photo-card">
+                <img src="tal.png" alt="טל רובין" width="840" height="1050" fetchpriority="high" decoding="async" />
+              </div>
+
+              <div class="mini-card">
+                <strong>מדע בגובה העיניים</strong>
+                הסברים ברורים, תרגול תכלסי והרבה סבלנות.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="fit">
+        <svg class="molecule-break" aria-hidden="true" viewBox="0 0 260 220">
+          <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round">
+            <path d="M54 72 105 50 151 82 202 56" />
+            <path d="M105 50 112 118 164 154" />
+            <path d="M151 82 164 154 218 170" />
+            <path d="M54 72 78 137 112 118" />
+          </g>
+          <g fill="currentColor">
+            <circle cx="54" cy="72" r="10" />
+            <circle cx="105" cy="50" r="8" />
+            <circle cx="151" cy="82" r="10" />
+            <circle cx="202" cy="56" r="7" />
+            <circle cx="112" cy="118" r="9" />
+            <circle cx="164" cy="154" r="8" />
+            <circle cx="218" cy="170" r="10" />
+            <circle cx="78" cy="137" r="7" />
+          </g>
+        </svg>
+
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>למי זה מתאים?</h2>
+            <p class="section-note">כשחומר מפסיק להרגיש כמו בלגן, גם הלחץ יורד. מתחילים מהמקום שבו אתה נמצא ובונים דרך ברורה להתקדמות.</p>
+          </div>
+
+          <div class="fit-list">
+            <div class="fit-item reveal"><span class="check">✓</span><div>לסטודנטים שמרגישים שהחומר לא מתחבר, גם אחרי הרצאות וסיכומים.</div></div>
+            <div class="fit-item reveal"><span class="check">✓</span><div>למי שיודע חלק מהתאוריה, אבל נתקע כשהוא מגיע לשאלות.</div></div>
+            <div class="fit-item reveal"><span class="check">✓</span><div>למי שמתכונן למבחן ורוצה לעשות סדר בלי להיכנס לפאניקה.</div></div>
+            <div class="fit-item reveal"><span class="check">✓</span><div>למי שמעדיף ללמוד באווירה פתוחה, תכלסית ורגועה.</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container about-grid">
+          <div class="about-main reveal">
+            <h2>שלום, אני טל.</h2>
+            <p>אני בן 34, בוגר תואר ראשון במדעי הים והסביבה הימית במרכז האקדמי רופין.</p>
+            <p>ביום יום אני מנהל מעבדה בחברת AgTech, כך שמדע הוא לא רק משהו שאני מלמד - אלא גם משהו שאני עובד איתו.</p>
+            <p>במקביל אני מתרגל סטודנטים ברופין ומדריך ילדים, נוער וסטודנטים בנושאי מדעים וטבע.</p>
+            <p>התחלתי ללמד בשנת 2017 במסגרת סטודנטים מלמדים סטודנטים, ומשם גדלתי בהדרגה לעוד תחומים, מסגרות וקבוצות.</p>
+          </div>
+
+          <div class="about-list">
+            <div class="about-item reveal">
+              <strong>מה אני הכי אוהב בהוראה?</strong>
+              <span>את הרגע שבו נושא שנראה מסובך פתאום מתחיל להיות ברור.</span>
+            </div>
+            <div class="about-item reveal">
+              <strong>איך נראית הלמידה איתי?</strong>
+              <span>שיח פתוח, תכלסיות, הומור כשאפשר והרבה דגש על הבנה אמיתית.</span>
+            </div>
+            <div class="about-item reveal">
+              <strong>למה דווקא כימיה?</strong>
+              <span>זה הפורטה שלי. שם יש לי הכי הרבה ניסיון, שעות הוראה וסיפורי הצלחה.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark">
+        <svg class="molecule-break" aria-hidden="true" viewBox="0 0 260 220">
+          <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round">
+            <path d="M38 126 83 88 135 108 185 70" />
+            <path d="M83 88 104 154 154 162" />
+            <path d="M135 108 154 162 218 148" />
+          </g>
+          <g fill="currentColor">
+            <circle cx="38" cy="126" r="10" />
+            <circle cx="83" cy="88" r="8" />
+            <circle cx="135" cy="108" r="10" />
+            <circle cx="185" cy="70" r="8" />
+            <circle cx="104" cy="154" r="9" />
+            <circle cx="154" cy="162" r="8" />
+            <circle cx="218" cy="148" r="10" />
+          </g>
+        </svg>
+
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>איך אני מלמד?</h2>
+            <p class="section-note">המטרה היא לעשות סדר, לסגור פערים ולתרגל בצורה ממוקדת, עד שהחומר מרגיש ברור יותר.</p>
+          </div>
+
+          <div class="cards-4">
+            <div class="card reveal">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 2v6L4.6 18.2A2.6 2.6 0 0 0 6.9 22h10.2a2.6 2.6 0 0 0 2.3-3.8L14 8V2"/><path d="M8 2h8"/><path d="M7.5 16h9"/></svg></div>
+              <h3>הבנה לפני שינון</h3>
+              <p>קודם מבינים את ההיגיון. אחר כך התרגול הרבה יותר טבעי.</p>
+            </div>
+
+            <div class="card reveal">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg></div>
+              <h3>שיעור תכלסי</h3>
+              <p>הסבר מסודר, תרגול משותף וחיבור למה שבאמת יופיע בקורס.</p>
+            </div>
+
+            <div class="card reveal">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/><path d="M22 10v6"/></svg></div>
+              <h3>ניסיון מהאקדמיה</h3>
+              <p>כמתרגל אקדמי אני מכיר מקרוב את המקומות שבהם סטודנטים נתקעים.</p>
+            </div>
+
+            <div class="card reveal">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2c1.9 0 3.5 4.5 3.5 10S13.9 22 12 22 8.5 17.5 8.5 12 10.1 2 12 2z"/><path d="M3.3 7c1-1.6 5.6-.2 10.3 2.5s7.6 6.6 6.7 8.2-5.6.2-10.3-2.5S2.4 8.6 3.3 7z"/><path d="M20.7 7c1 1.6-2 5.5-6.7 8.2s-9.3 4.1-10.3 2.5 2-5.5 6.7-8.2S19.8 5.4 20.7 7z"/></svg></div>
+              <h3>מדע גם מחוץ לכיתה</h3>
+              <p>המדע פוגש אותי גם במעבדה, לא רק בספרים ובמצגות.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section mid-cta-section">
+        <div class="container">
+          <div class="mid-cta reveal">
+            <div>
+              <h3>מרגיש שהחומר עדיין לא מתחבר?</h3>
+              <p>אפשר לעצור כאן, לשלוח הודעה קצרה ולראות איך עושים סדר.</p>
+            </div>
+            <a class="btn btn-primary" href="https://wa.me/972508148081?text=%D7%94%D7%99%D7%99%20%D7%98%D7%9C%2C%20%D7%94%D7%97%D7%95%D7%9E%D7%A8%20%D7%A2%D7%93%D7%99%D7%99%D7%9F%20%D7%9C%D7%90%20%D7%9E%D7%AA%D7%97%D7%91%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A2%D7%96%D7%A8%D7%94" target="_blank" rel="noopener">שלחו הודעה</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="topics">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>מה אפשר ללמוד?</h2>
+            <p class="section-note">הדגש המרכזי הוא כימיה לסטודנטים, לצד תחומים מדעיים נוספים שבהם יש לי ניסיון בהדרכה ובתרגול.</p>
+          </div>
+
+          <div class="topics">
+            <div class="topic-main reveal">
+              <h3>כימיה לסטודנטים</h3>
+              <p>שיעורים פרטיים, הכנה למבחנים, מרתונים ותרגול ממוקד לפי הסילבוס והחומר של הקורס.</p>
+              <div class="chips">
+                <span class="chip">כימיה כללית</span>
+                <span class="chip">כימיה פיזיקלית</span>
+                <span class="chip">כימיה אורגנית</span>
+                <span class="chip">תרגול שאלות</span>
+                <span class="chip">הכנה למבחנים</span>
+                <span class="chip">מרתונים לקבוצות</span>
+              </div>
+            </div>
+
+            <div class="topic-side">
+              <div class="card reveal">
+                <h3>מדעים נוספים</h3>
+                <p>ביולוגיה של התא, אוקיינוגרפיה פיזיקלית, ימאות ונושאים מדעיים נוספים בהתאם לצורך.</p>
+              </div>
+              <div class="card reveal">
+                <h3>תלמידים ונוער</h3>
+                <p>אפשרי גם תגבור במדעים לתלמידים, בעיקר כשצריך הסבר רגוע וברור של הבסיס.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="process">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>איך נראה שיעור?</h2>
+            <p class="section-note">אפשר ללמוד בזום מכל מקום או פרונטלית מהרצליה עד חדרה. בהתחלה עושים סדר ובונים בסיס. לקראת מבחן עוברים ליותר תרגול ופתרון בעיות.</p>
+          </div>
+
+          <div class="process-cards">
+            <div class="card process-card reveal">
+              <h3>ממפים את המצב</h3>
+              <p>מבינים מה למדת, איפה אתה נתקע ומה המטרה הקרובה.</p>
+            </div>
+            <div class="card process-card reveal">
+              <h3>עושים סדר</h3>
+              <p>מפרקים את הנושא ומחברים בין העקרונות.</p>
+            </div>
+            <div class="card process-card reveal">
+              <h3>מתרגלים יחד</h3>
+              <p>פותרים שאלות, בודקים דרך חשיבה ומבינים טעויות.</p>
+            </div>
+            <div class="card process-card reveal">
+              <h3>ממשיכים לתרגול</h3>
+              <p>אפשר לקבל חומר נוסף לתרגול לפי הצורך.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="proof">
+        <div class="container proof-box">
+          <div class="proof-highlight reveal">
+            <strong>יש סטודנטים שמגיעים בלי לדעת איך להתחיל ללמוד כימיה, ואחרי כמה שיעורים כבר מרגישים שהחומר מתחיל להסתדר.</strong>
+            <span>זה לא קסם ולא הבטחה. זה שילוב של סדר, תרגול והבנה.</span>
+          </div>
+
+          <div class="reveal">
+            <div class="section-head" style="display:block; margin-bottom:22px;">
+              <h2>מקום להמלצות אמיתיות</h2>
+              <p class="quote-placeholder">האזור הזה מוכן להחלפה בהמלצות אמיתיות, צילומי מסך או סיפורי הצלחה.</p>
+            </div>
+
+            <div class="testimonial-slots">
+              <div class="testimonial-slot"><strong>שם פרטי - קורס</strong><span>כאן תיכנס המלצה אמיתית עם הקשר ברור: קורס, מוסד לימודים ונקודת פתיחה.</span></div>
+              <div class="testimonial-slot"><strong>צילום מסך</strong><span>אפשר לשלב הודעת וואטסאפ אמיתית, באישור הסטודנט.</span></div>
+              <div class="testimonial-slot"><strong>לפני ואחרי</strong><span>מקום לסיפור קצר: איך הגעתי, מה עשינו ומה השתפר.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="faq">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>שאלות נפוצות</h2>
+            <p class="section-note">כמה תשובות קצרות שיכולות לעזור לעשות סדר לפני שמתחילים.</p>
+          </div>
+
+          <div class="faq">
+            <details open class="reveal">
+              <summary>אני לא מבין כימיה בכלל. זה מתאים לי?</summary>
+              <p>כן. זה משפט שאני שומע הרבה. מתחילים מהמקום שבו אתה נמצא, גם אם כרגע הכול מרגיש מבולגן.</p>
+            </details>
+            <details class="reveal">
+              <summary>אפשר ללמוד בזום?</summary>
+              <p>כן. אפשר בזום מכל מקום. שיעורים פרונטליים מתקיימים בהתאם לזמינות באזור הרצליה עד חדרה.</p>
+            </details>
+            <details class="reveal">
+              <summary>אפשר להגיע רק לפני מבחן?</summary>
+              <p>כן. אפשר לקבוע שיעור נקודתי, כמה מפגשים ממוקדים או מרתון לקראת מבחן.</p>
+            </details>
+            <details class="reveal">
+              <summary>אתה מתאים את השיעור לקורס הספציפי שלי?</summary>
+              <p>כן. עובדים לפי הסילבוס, המצגות, התרגולים, מבחני העבר והנושאים שצריך לחזק.</p>
+            </details>
+            <details class="reveal">
+              <summary>כמה עולה שיעור?</summary>
+              <p>מחירים נקבעים בשיחה בהתאם לסוג המפגש, הפורמט, אורך המפגש והאם מדובר בשיעור פרטי, קבוצה או מרתון.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-grid">
+          <div class="contact-panel reveal">
+            <h2>רוצים לעשות סדר בכימיה?</h2>
+            <p>שלחו הודעה קצרה ונבין איפה אתם עומדים, מה הקורס ומה הדרך הנכונה להתקדם.</p>
+            <p class="small">זום מכל מקום. פרונטלי מהרצליה עד חדרה. מחירים בשיחה.</p>
+
+            <div class="actions">
+              <a class="btn btn-primary" href="https://wa.me/972508148081?text=%D7%94%D7%99%D7%99%20%D7%98%D7%9C%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A2%D7%A9%D7%95%D7%AA%20%D7%A1%D7%93%D7%A8%20%D7%91%D7%9B%D7%99%D7%9E%D7%99%D7%94" target="_blank" rel="noopener">דברו איתי בוואטסאפ</a>
+              <a class="btn btn-secondary" href="mailto:talru7@gmail.com?subject=%D7%A4%D7%A0%D7%99%D7%99%D7%94%20%D7%9C%D7%98%D7%9C%20%D7%A8%D7%95%D7%91%D7%99%D7%9F">שליחת מייל</a>
+            </div>
+
+            <p class="small">וואטסאפ הוא ערוץ הפנייה הראשי. אפשר גם לשלוח מייל לכתובת talru7@gmail.com.</p>
+          </div>
+
+          <div class="form-card reveal">
+            <form id="contact-form">
+              <div class="field">
+                <label for="name">שם</label>
+                <input id="name" name="name" type="text" autocomplete="name" placeholder="איך קוראים לך?" required />
+              </div>
+
+              <div class="field">
+                <label for="course">קורס או נושא</label>
+                <input id="course" name="course" type="text" placeholder="למשל: כימיה אורגנית, כימיה כללית..." required />
+              </div>
+
+              <div class="field">
+                <label for="contact-field">טלפון או מייל</label>
+                <input id="contact-field" name="contact" type="text" placeholder="איך הכי נוח לחזור אליך?" required />
+              </div>
+
+              <div class="field">
+                <label for="message">הודעה קצרה, לא חובה</label>
+                <textarea id="message" name="message" placeholder="אפשר לכתוב איפה אתה עומד כרגע ומה הקורס הקרוב."></textarea>
+              </div>
+
+              <button class="btn btn-primary" type="submit">שליחת הפרטים בוואטסאפ</button>
+              <p id="form-note" class="form-note" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        טל רובין • הדרכה אקדמית בכימיה • 050-8148081 • talru7@gmail.com
+      </div>
+    </footer>
+  </div>
+
+  <a class="floating-whatsapp" href="https://wa.me/972508148081?text=%D7%94%D7%99%D7%99%20%D7%98%D7%9C%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%A2%D7%9C%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%91%D7%9B%D7%99%D7%9E%D7%99%D7%94" target="_blank" rel="noopener" aria-label="פתיחת שיחה בוואטסאפ">
+    <svg aria-hidden="true" viewBox="0 0 32 32">
+      <path d="M16.02 3.2c-7.06 0-12.8 5.62-12.8 12.55 0 2.2.59 4.34 1.7 6.22L3.1 28.8l7.05-1.79a13.1 13.1 0 0 0 5.87 1.39c7.06 0 12.8-5.62 12.8-12.55S23.08 3.2 16.02 3.2Zm0 22.97c-1.9 0-3.76-.5-5.38-1.45l-.39-.23-4.18 1.06 1.09-4.02-.26-.42a10.24 10.24 0 0 1-1.45-5.26c0-5.7 4.74-10.33 10.57-10.33s10.57 4.63 10.57 10.33-4.74 10.32-10.57 10.32Zm5.8-7.74c-.32-.16-1.9-.92-2.2-1.02-.29-.11-.5-.16-.72.16-.21.31-.82 1.02-1 1.23-.19.21-.37.24-.69.08-.32-.16-1.34-.48-2.55-1.54-.94-.83-1.58-1.85-1.76-2.16-.18-.32-.02-.49.14-.64.14-.14.32-.37.48-.55.16-.18.21-.31.32-.52.11-.21.05-.39-.03-.55-.08-.16-.72-1.7-.98-2.33-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.55.08-.84.39-.29.31-1.1 1.05-1.1 2.57s1.13 2.98 1.29 3.18c.16.21 2.22 3.32 5.38 4.65.75.32 1.34.51 1.8.65.76.24 1.45.21 2 .13.61-.09 1.9-.76 2.17-1.49.27-.73.27-1.36.19-1.49-.08-.13-.29-.21-.61-.37Z"/>
+    </svg>
+  </a>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach((el) => observer.observe(el));
+    } else {
+      revealElements.forEach((el) => el.classList.add('is-visible'));
+    }
+
+    const form = document.getElementById('contact-form');
+    const note = document.getElementById('form-note');
+
+    if (form) {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const course = document.getElementById('course').value.trim();
+        const contactValue = document.getElementById('contact-field').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        const text = [
+          'היי טל, אשמח לעשות סדר בחומר.',
+          '',
+          `שם: ${name}`,
+          `קורס או נושא: ${course}`,
+          `טלפון או מייל: ${contactValue}`,
+          message ? `הודעה: ${message}` : ''
+        ].filter(Boolean).join('\\n');
+
+        note.textContent = 'מעולה. אני פותח לך שיחת וואטסאפ עם הפרטים שמילאת.';
+        window.open(`https://wa.me/972508148081?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+      });
+    }
+  </script>
+</body>
+</html>
