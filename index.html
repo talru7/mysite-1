@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>טל רובין | הדרכה אקדמית בכימיה לסטודנטים</title>
+  <meta name="keywords" content="טל רובין, כימיה, שיעורים פרטיים בכימיה, כימיה לסטודנטים, כימיה אורגנית, כימיה פיזיקלית, כימיה כללית, מרתון כימיה, רופין" />
+  <meta name="description" content="טל רובין, מנהל מעבדה ומתרגל אקדמי. הדרכה אקדמית בכימיה לסטודנטים, שיעורים פרטיים, מרתונים והכנה למבחנים." />
+  <meta name="theme-color" content="#2e5e4e" />
+  <meta property="og:title" content="טל רובין | הדרכה אקדמית בכימיה" />
+  <meta property="og:description" content="להבין את החומר ולהגיע רגועים למבחן." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="tal.png" />
+  <style>
+    :root {
+      --bg: #faf9f4;
+      --bg-soft: #f1f4ee;
+      --card: #ffffff;
+      --text: #17231d;
+      --muted: #5f6c64;
+      --green: #2e5e4e;
+      --green-dark: #19382d;
+      --green-soft: #e6efe9;
+      --sand: #efe6d6;
+      --accent: #c77737;
+      --accent-soft: #fff1df;
+      --line: #dfe6df;
+      --shadow: 0 18px 45px rgba(25, 56, 45, 0.08);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Heebo", "Assistant", sans-serif;
+      background:
+        radial-gradient(circle at 12% 12%, rgba(199, 119, 55, 0.13), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(46, 94, 78, 0.11), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.78;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 14% 18%, rgba(46, 94, 78, 0.16) 0 3px, transparent 4px),
+        radial-gradient(circle at 18% 22%, rgba(46, 94, 78, 0.12) 0 2px, transparent 3px),
+        radial-gradient(circle at 22% 16%, rgba(46, 94, 78, 0.12) 0 2px, transparent 3px),
+        linear-gradient(35deg, transparent 49.3%, rgba(46, 94, 78, 0.09) 49.5%, rgba(46, 94, 78, 0.09) 50.5%, transparent 50.7%),
+        linear-gradient(-30deg, transparent 49.3%, rgba(46, 94, 78, 0.09) 49.5%, rgba(46, 94, 78, 0.09) 50.5%, transparent 50.7%),
+        radial-gradient(circle at 82% 26%, rgba(199, 119, 55, 0.14) 0 3px, transparent 4px),
+        radial-gradient(circle at 86% 31%, rgba(199, 119, 55, 0.11) 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 33%, rgba(199, 119, 55, 0.11) 0 2px, transparent 3px),
+        linear-gradient(22deg, transparent 49.3%, rgba(199, 119, 55, 0.08) 49.5%, rgba(199, 119, 55, 0.08) 50.5%, transparent 50.7%),
+        linear-gradient(-38deg, transparent 49.3%, rgba(199, 119, 55, 0.08) 49.5%, rgba(199, 119, 55, 0.08) 50.5%, transparent 50.7%);
+      background-repeat: no-repeat;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.35));
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      overflow: hidden;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(250, 249, 244, 0.86);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(223, 230, 223, 0.8);
+    }
+
+    .topbar::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: -1px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(199, 119, 55, 0.75), rgba(46, 94, 78, 0.75), transparent);
+      opacity: 0.55;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand strong {
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand span {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      color: white;
+      box-shadow: 0 12px 24px rgba(46, 94, 78, 0.18);
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--green);
+      border-color: var(--line);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) 400px;
+      gap: 64px;
+      align-items: center;
+      min-height: 78vh;
+      padding: 72px 0 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(2.65rem, 6vw, 5rem);
+      max-width: 760px;
+    }
+
+    .hero-title-main,
+    .hero-title-sub {
+      display: block;
+    }
+
+    .hero-title-main {
+      color: var(--green-dark);
+      letter-spacing: -0.045em;
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 60%, var(--accent) 115%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-title-sub {
+      color: var(--text);
+      font-size: 0.58em;
+      line-height: 1.25;
+      margin-top: 10px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    .title-accent {
+      width: 118px;
+      height: 5px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green), var(--accent));
+      margin: 18px 0 0 auto;
+    }
+
+    .hero-lead {
+      margin: 24px 0 18px;
+      color: var(--muted);
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      max-width: 690px;
+    }
+
+    .hero-statement {
+      margin: 24px 0 0;
+      padding: 22px 24px;
+      border-right: 4px solid var(--green);
+      background: white;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+      max-width: 690px;
+      font-size: 1.12rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .hero-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 14px;
+    }
+
+    .hero-photo-wrap {
+      display: grid;
+      gap: 16px;
+      align-self: center;
+    }
+
+    .hero-photo-card {
+      position: relative;
+      background: var(--card);
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-photo-card::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .hero-photo-card::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      left: -54px;
+      bottom: -54px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(199, 119, 55, 0.28), transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-photo-card img {
+      width: 100%;
+      display: block;
+      border-radius: 24px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-credentials {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(25, 56, 45, 0.06);
+    }
+
+    .hero-credentials div {
+      display: grid;
+      gap: 2px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: var(--bg);
+    }
+
+    .hero-credentials strong {
+      color: var(--green);
+      font-size: 0.98rem;
+    }
+
+    .hero-credentials span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .section {
+      position: relative;
+      padding: 76px 0;
+    }
+
+    main {
+      counter-reset: site-section;
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 120px;
+      left: max(20px, calc((100vw - var(--max)) / 2 - 55px));
+      top: 38px;
+      opacity: 0.18;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18px 18px, var(--green) 0 4px, transparent 5px),
+        radial-gradient(circle at 92px 34px, var(--green) 0 4px, transparent 5px),
+        radial-gradient(circle at 132px 86px, var(--green) 0 4px, transparent 5px),
+        linear-gradient(32deg, transparent 0 22px, var(--green) 23px 24px, transparent 25px 100px),
+        linear-gradient(54deg, transparent 0 82px, var(--green) 83px 84px, transparent 85px 130px);
+    }
+
+    .section.alt {
+      background: var(--bg-soft);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.8fr 1fr;
+      gap: 42px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    .section-head h2 {
+      position: relative;
+      font-size: clamp(2rem, 4vw, 3rem);
+      padding-top: 26px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .section-note {
+      position: relative;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px 24px 22px 26px;
+      box-shadow: 0 14px 35px rgba(25, 56, 45, 0.05);
+      overflow: hidden;
+    }
+
+    .section-note::after {
+      content: "";
+      position: absolute;
+      left: -42px;
+      top: -42px;
+      width: 96px;
+      height: 96px;
+      border-radius: 999px;
+      background: rgba(199, 119, 55, 0.11);
+    }
+
+    .accent-note,
+    .faq-intro {
+      background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255, 241, 223, 0.7));
+    }
+
+    .section-note::before {
+      content: "";
+      position: absolute;
+      top: 22px;
+      bottom: 22px;
+      right: 0;
+      width: 4px;
+      border-radius: 999px 0 0 999px;
+      background: var(--green);
+    }
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .cards-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: 0 12px 30px rgba(25, 56, 45, 0.045);
+      overflow: hidden;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto auto;
+      width: 56px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--accent));
+      opacity: 0.72;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(199, 119, 55, 0.34);
+      box-shadow: 0 18px 38px rgba(25, 56, 45, 0.075);
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      background: var(--green-soft);
+      color: var(--green);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .about-main {
+      background: var(--green-dark);
+      color: white;
+      border-radius: 34px;
+      padding: 40px;
+      min-height: 100%;
+    }
+
+    .about-main h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 18px;
+    }
+
+    .about-main p {
+      color: rgba(255, 255, 255, 0.82);
+      margin: 0 0 16px;
+    }
+
+    .about-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .about-item {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .about-item strong {
+      display: block;
+      font-size: 1.12rem;
+      margin-bottom: 6px;
+    }
+
+    .about-item span {
+      font-size: 1.04rem;
+      color: var(--muted);
+    }
+
+    .fit-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .fit-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .check {
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-top: 3px;
+    }
+
+    .topics {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+    }
+
+    .topic-main {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,255,255,0.9)),
+        repeating-linear-gradient(135deg, rgba(46, 94, 78, 0.06) 0 1px, transparent 1px 13px);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      padding: 34px;
+    }
+
+    .topic-main h3 {
+      font-size: 1.8rem;
+      color: var(--green);
+      margin-bottom: 14px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .chip {
+      background: var(--green-soft);
+      border: 1px solid rgba(46, 94, 78, 0.18);
+      border-radius: 999px;
+      padding: 8px 13px;
+      color: var(--green-dark);
+      font-size: 0.95rem;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .chip:hover {
+      transform: translateY(-2px);
+      background: #d9e7df;
+      border-color: rgba(46, 94, 78, 0.32);
+    }
+
+    .topic-side {
+      display: grid;
+      gap: 16px;
+    }
+
+    .process {
+      counter-reset: step;
+    }
+
+    .process-card {
+      position: relative;
+    }
+
+    .process-card:before {
+      counter-increment: step;
+      content: counter(step);
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: var(--green);
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .proof-box {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .proof-highlight {
+      background: linear-gradient(135deg, var(--sand), var(--accent-soft));
+      border-radius: 24px;
+      padding: 28px;
+      border: 1px solid rgba(199, 119, 55, 0.18);
+    }
+
+    .proof-highlight strong {
+      display: block;
+      font-size: 1.7rem;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .proof-highlight span {
+      color: var(--muted);
+    }
+
+    .quote-placeholder {
+      color: var(--muted);
+      border-right: 3px solid var(--green);
+      padding-right: 18px;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    details {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px 22px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    details p {
+      color: var(--muted);
+      margin: 12px 0 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .contact-panel {
+      background: var(--green-dark);
+      color: white;
+      border-radius: 34px;
+      padding: 36px;
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 14px;
+    }
+
+    .contact-panel p {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .contact-actions {
+      display: grid;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .contact-actions .btn-secondary {
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .form-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: 30px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      font-weight: 700;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px 15px;
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    textarea {
+      min-height: 115px;
+      resize: vertical;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: 2px solid rgba(46, 94, 78, 0.18);
+      border-color: var(--green);
+    }
+
+    .small {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin: 8px 0 0;
+    }
+
+    footer {
+      padding: 36px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 920px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero,
+      .section-head,
+      .about-grid,
+      .topics,
+      .proof-box,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        gap: 34px;
+        padding-top: 44px;
+      }
+
+      .hero-photo-card {
+        max-width: 430px;
+        margin: 0 auto;
+      }
+
+      .hero-mini-card {
+        right: 12px;
+        bottom: 18px;
+      }
+
+      .cards-3,
+      .cards-4,
+      .fit-list {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .section::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 26px, var(--max));
+      }
+
+      .hero-actions,
+      .contact-actions {
+        display: grid;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-mini-card {
+        position: static;
+        margin: 14px auto 0;
+        max-width: 100%;
+      }
+
+      .card,
+      .about-main,
+      .topic-main,
+      .proof-box,
+      .contact-panel,
+      .form-card {
+        padding: 24px;
+        border-radius: 24px;
+      }
+    }
+
+    /* v8 visual refinement */
+    :root {
+      --bg: #fbfaf5;
+      --bg-soft: #eef4ef;
+      --green: #2d6653;
+      --green-dark: #14382c;
+      --green-soft: #e4f0e9;
+      --sea: #3d7f82;
+      --sand: #e8dfc8;
+      --accent: #3d7f82;
+      --accent-soft: #edf6f5;
+      --shadow: 0 22px 54px rgba(20, 56, 44, 0.1);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 8% 8%, rgba(61, 127, 130, 0.14), transparent 26%),
+        radial-gradient(circle at 92% 10%, rgba(45, 102, 83, 0.12), transparent 30%),
+        linear-gradient(180deg, #fbfaf5 0%, #f7f5ec 52%, #fbfaf5 100%);
+    }
+
+    body::before {
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'%3E%3Cg fill='none' stroke='%232d6653' stroke-opacity='.12' stroke-width='2'%3E%3Cpath d='M86 142 154 104 222 142 222 220 154 258 86 220Z'/%3E%3Cpath d='M222 142 292 102 362 142 362 220 292 260 222 220Z'/%3E%3Cpath d='M154 258 154 338 222 378 292 338 292 260'/%3E%3C/g%3E%3Cg fill='%232d6653' fill-opacity='.18'%3E%3Ccircle cx='86' cy='142' r='5'/%3E%3Ccircle cx='154' cy='104' r='4'/%3E%3Ccircle cx='222' cy='142' r='5'/%3E%3Ccircle cx='292' cy='102' r='4'/%3E%3Ccircle cx='362' cy='142' r='5'/%3E%3Ccircle cx='154' cy='258' r='5'/%3E%3Ccircle cx='292' cy='260' r='5'/%3E%3Ccircle cx='222' cy='378' r='4'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 420px 420px;
+      background-position: left 48px top 120px;
+      background-repeat: repeat-y;
+      opacity: 0.72;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.52), rgba(0,0,0,0.2) 55%, transparent 88%);
+    }
+
+    .topbar {
+      background: rgba(251, 250, 245, 0.9);
+      box-shadow: 0 10px 30px rgba(20, 56, 44, 0.04);
+    }
+
+    .topbar::after {
+      background: linear-gradient(90deg, transparent, rgba(61, 127, 130, 0.62), rgba(45, 102, 83, 0.72), transparent);
+    }
+
+    .hero {
+      grid-template-columns: minmax(0, 1.15fr) 430px;
+      gap: 74px;
+      padding: 86px 0 68px;
+    }
+
+    .eyebrow {
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(45, 102, 83, 0.18);
+      box-shadow: 0 10px 24px rgba(20, 56, 44, 0.06);
+    }
+
+    h1 {
+      font-size: clamp(3.05rem, 6.5vw, 5.55rem);
+    }
+
+    .hero-title-main {
+      color: var(--green-dark);
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      text-wrap: balance;
+    }
+
+    .hero-title-sub {
+      color: var(--green);
+      font-size: 0.57em;
+      max-width: 760px;
+      text-wrap: balance;
+    }
+
+    .title-accent {
+      width: 156px;
+      height: 6px;
+      background: linear-gradient(90deg, var(--green), var(--sea));
+      box-shadow: 0 8px 22px rgba(61, 127, 130, 0.22);
+    }
+
+    .hero-statement {
+      position: relative;
+      border-right: 0;
+      border: 1px solid rgba(45, 102, 83, 0.15);
+      background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(237, 246, 245, 0.74));
+      padding: 24px 28px;
+    }
+
+    .hero-statement::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      bottom: 18px;
+      right: 0;
+      width: 5px;
+      border-radius: 999px 0 0 999px;
+      background: linear-gradient(180deg, var(--green), var(--sea));
+    }
+
+    .hero-photo-card {
+      overflow: visible;
+      background: linear-gradient(135deg, #fff, #f4f7f1);
+      padding: 14px;
+      border-color: rgba(45, 102, 83, 0.18);
+    }
+
+    .hero-photo-card::after {
+      width: 270px;
+      height: 270px;
+      left: -86px;
+      bottom: -88px;
+      background: radial-gradient(circle, rgba(61, 127, 130, 0.18), transparent 70%);
+      z-index: 0;
+    }
+
+    .hero-photo-card img {
+      position: relative;
+      z-index: 1;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4);
+    }
+
+    .photo-molecule {
+      position: absolute;
+      width: 245px;
+      height: 245px;
+      left: -92px;
+      top: -56px;
+      z-index: 3;
+      overflow: visible;
+      filter: drop-shadow(0 14px 24px rgba(20, 56, 44, 0.1));
+    }
+
+    .photo-molecule line {
+      stroke: rgba(45, 102, 83, 0.34);
+      stroke-width: 4;
+      stroke-linecap: round;
+    }
+
+    .photo-molecule circle {
+      fill: #fbfaf5;
+      stroke: var(--green);
+      stroke-width: 4;
+    }
+
+    .hero-credentials {
+      position: relative;
+      z-index: 4;
+      transform: translateY(-18px);
+      margin-inline: 18px;
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(14px);
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section::before {
+      width: 230px;
+      height: 170px;
+      opacity: 0.34;
+      left: max(18px, calc((100vw - var(--max)) / 2 - 92px));
+      top: 46px;
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='230' height='170' viewBox='0 0 230 170'%3E%3Cg fill='none' stroke='%232d6653' stroke-width='3' stroke-linecap='round' stroke-opacity='.45'%3E%3Cpath d='M38 72 82 42 130 72 130 126 82 154 38 126Z'/%3E%3Cpath d='M130 72 176 48 208 78'/%3E%3Cpath d='M82 42 82 12'/%3E%3C/g%3E%3Cg fill='%23fbfaf5' stroke='%232d6653' stroke-width='3'%3E%3Ccircle cx='38' cy='72' r='8'/%3E%3Ccircle cx='82' cy='42' r='7'/%3E%3Ccircle cx='130' cy='72' r='8'/%3E%3Ccircle cx='130' cy='126' r='7'/%3E%3Ccircle cx='82' cy='154' r='8'/%3E%3Ccircle cx='38' cy='126' r='7'/%3E%3Ccircle cx='176' cy='48' r='7'/%3E%3Ccircle cx='208' cy='78' r='8'/%3E%3Ccircle cx='82' cy='12' r='6'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+    }
+
+    .section.alt {
+      background:
+        radial-gradient(circle at 92% 12%, rgba(61, 127, 130, 0.08), transparent 28%),
+        var(--bg-soft);
+      border-block: 1px solid rgba(45, 102, 83, 0.06);
+    }
+
+    .section-head {
+      align-items: center;
+      margin-bottom: 38px;
+    }
+
+    .section-head h2 {
+      padding-top: 0;
+      color: var(--green-dark);
+    }
+
+    .section-head h2::before {
+      content: none !important;
+    }
+
+    .section-note {
+      border-color: rgba(45, 102, 83, 0.14);
+      box-shadow: 0 18px 40px rgba(20, 56, 44, 0.06);
+    }
+
+    .section-note::after {
+      width: 118px;
+      height: 118px;
+      background:
+        radial-gradient(circle at 24px 24px, rgba(45, 102, 83, 0.28) 0 4px, transparent 5px),
+        radial-gradient(circle at 72px 36px, rgba(61, 127, 130, 0.24) 0 4px, transparent 5px),
+        radial-gradient(circle at 54px 82px, rgba(45, 102, 83, 0.2) 0 4px, transparent 5px),
+        linear-gradient(16deg, transparent 0 37px, rgba(45, 102, 83, 0.18) 38px 40px, transparent 41px),
+        linear-gradient(-42deg, transparent 0 55px, rgba(45, 102, 83, 0.16) 56px 58px, transparent 59px);
+      border-radius: 0;
+      left: -26px;
+      top: -18px;
+      opacity: 0.9;
+    }
+
+    .accent-note,
+    .faq-intro {
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(237, 246, 245, 0.78));
+    }
+
+    .card {
+      border-color: rgba(45, 102, 83, 0.12);
+    }
+
+    .card::before {
+      background: linear-gradient(90deg, var(--green), var(--sea));
+    }
+
+    .card:hover {
+      border-color: rgba(61, 127, 130, 0.34);
+      box-shadow: 0 22px 44px rgba(20, 56, 44, 0.09);
+    }
+
+    .icon {
+      background: linear-gradient(135deg, var(--green-soft), #f3f7f3);
+      border: 1px solid rgba(45, 102, 83, 0.14);
+      transition: transform 0.18s ease;
+    }
+
+    .card:hover .icon {
+      transform: rotate(-7deg) scale(1.04);
+    }
+
+    .about-main {
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(20, 56, 44, 0.98), rgba(45, 102, 83, 0.96));
+      overflow: hidden;
+    }
+
+    .about-main::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      left: -70px;
+      bottom: -80px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='white' stroke-opacity='.18' stroke-width='3'%3E%3Cpath d='M62 92 112 62 162 92 162 152 112 182 62 152Z'/%3E%3Cpath d='M162 92 206 68'/%3E%3Cpath d='M112 182 112 228'/%3E%3C/g%3E%3Cg fill='white' fill-opacity='.24'%3E%3Ccircle cx='62' cy='92' r='6'/%3E%3Ccircle cx='112' cy='62' r='5'/%3E%3Ccircle cx='162' cy='92' r='6'/%3E%3Ccircle cx='162' cy='152' r='5'/%3E%3Ccircle cx='112' cy='182' r='6'/%3E%3Ccircle cx='62' cy='152' r='5'/%3E%3Ccircle cx='206' cy='68' r='5'/%3E%3Ccircle cx='112' cy='228' r='5'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+      pointer-events: none;
+    }
+
+    .fit-item,
+    .about-item,
+    details,
+    .form-card,
+    .proof-box,
+    .topic-main {
+      box-shadow: 0 14px 34px rgba(20, 56, 44, 0.045);
+    }
+
+    .chip {
+      background: var(--green-soft);
+      border-color: rgba(45, 102, 83, 0.22);
+      color: var(--green-dark);
+    }
+
+    .chip:hover {
+      background: #d5e8dc;
+      border-color: rgba(45, 102, 83, 0.38);
+    }
+
+    .proof-highlight {
+      background: linear-gradient(135deg, var(--sand), rgba(237, 246, 245, 0.76));
+      border-color: rgba(45, 102, 83, 0.16);
+    }
+
+    .molecule-break {
+      padding: 10px 0 0;
+      margin: -22px 0 -18px;
+      opacity: 0.8;
+    }
+
+    .molecule-break svg {
+      width: min(760px, 100%);
+      display: block;
+      margin: 0 auto;
+      overflow: visible;
+    }
+
+    .molecule-break line {
+      stroke: rgba(45, 102, 83, 0.22);
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+
+    .molecule-break circle {
+      fill: #fbfaf5;
+      stroke: rgba(45, 102, 83, 0.5);
+      stroke-width: 3;
+    }
+
+    @media (max-width: 920px) {
+      .hero {
+        gap: 38px;
+      }
+      .photo-molecule {
+        width: 190px;
+        height: 190px;
+        left: -46px;
+        top: -42px;
+      }
+      .section::before {
+        opacity: 0.18;
+        left: -58px;
+      }
+    }
+
+  
+    /* V9 polish */
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+      max-width: 760px;
+    }
+
+    .hero-copy .lead,
+    .hero p.lead {
+      font-size: clamp(1.18rem, 2vw, 1.42rem);
+      max-width: 640px;
+    }
+
+    .hero-visual,
+    .portrait-wrap,
+    .image-wrap,
+    .hero-image,
+    .profile-wrap {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-visual img,
+    .portrait-wrap img,
+    .image-wrap img,
+    .hero-image img,
+    .profile-wrap img,
+    img[alt="טל רובין"] {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-visual::before,
+    .portrait-wrap::before,
+    .image-wrap::before,
+    .hero-image::before,
+    .profile-wrap::before {
+      z-index: 0 !important;
+      transform: translate(22px, -20px) scale(1.04);
+      opacity: 0.58;
+      pointer-events: none;
+    }
+
+    .hero-visual::after,
+    .portrait-wrap::after,
+    .image-wrap::after,
+    .hero-image::after,
+    .profile-wrap::after {
+      z-index: 1 !important;
+      pointer-events: none;
+    }
+
+    .section {
+      padding-block: clamp(72px, 9vw, 118px);
+    }
+
+    .section-head h2,
+    .about-main h2,
+    .contact-panel h2 {
+      font-size: clamp(2.1rem, 4vw, 3.15rem);
+      letter-spacing: -0.035em;
+    }
+
+    .section-note {
+      font-size: clamp(1.08rem, 1.7vw, 1.22rem) !important;
+      line-height: 1.85;
+      max-width: 780px;
+    }
+
+    .about-main p,
+    .card p,
+    .fit-item,
+    details p,
+    .proof-highlight span,
+    .form-card label {
+      font-size: clamp(1.03rem, 1.3vw, 1.13rem) !important;
+    }
+
+    .card,
+    .fit-item,
+    .about-item,
+    details,
+    .form-card,
+    .contact-panel {
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
+    }
+
+    .card:hover,
+    .fit-item:hover,
+    .about-item:hover,
+    details:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 55px rgba(25, 56, 45, 0.11);
+      border-color: rgba(46, 94, 78, 0.22);
+    }
+
+    .icon svg,
+    .check,
+    .chip {
+      transition: transform 220ms ease, background 220ms ease;
+    }
+
+    .card:hover .icon svg {
+      transform: rotate(-6deg) scale(1.04);
+    }
+
+    .chip:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+      animation: softPulse 3.8s ease-in-out infinite;
+    }
+
+    @keyframes softPulse {
+      0%, 100% { box-shadow: 0 14px 34px rgba(46, 94, 78, 0.18); }
+      50% { box-shadow: 0 18px 46px rgba(46, 94, 78, 0.28); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn-primary {
+        animation: none;
+      }
+      .card,
+      .fit-item,
+      .about-item,
+      details,
+      .chip,
+      .icon svg {
+        transition: none;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero h1 {
+        font-size: clamp(2.65rem, 12vw, 4rem);
+      }
+      .section {
+        padding-block: 68px;
+      }
+    }
+
+  
+    .molecule-behind {
+      z-index: 0 !important;
+      pointer-events: none;
+    }
+
+  
+    /* V10 explicit hero molecule stacking fix */
+    .hero-visual,
+    .portrait-wrap,
+    .image-wrap,
+    .hero-image,
+    .profile-wrap,
+    .hero-media,
+    .portrait-card {
+      position: relative !important;
+      isolation: isolate !important;
+    }
+
+    .hero-visual img,
+    .portrait-wrap img,
+    .image-wrap img,
+    .hero-image img,
+    .profile-wrap img,
+    .hero-media img,
+    .portrait-card img,
+    img[alt="טל רובין"] {
+      position: relative !important;
+      z-index: 10 !important;
+    }
+
+    .hero-visual .molecule,
+    .hero-visual .molecule-art,
+    .hero-visual .molecule-behind,
+    .hero-visual .hero-molecule,
+    .hero-visual .science-mark,
+    .portrait-wrap .molecule,
+    .portrait-wrap .molecule-art,
+    .portrait-wrap .molecule-behind,
+    .portrait-wrap .hero-molecule,
+    .portrait-wrap .science-mark,
+    .image-wrap .molecule,
+    .image-wrap .molecule-art,
+    .image-wrap .molecule-behind,
+    .image-wrap .hero-molecule,
+    .image-wrap .science-mark,
+    .hero-image .molecule,
+    .hero-image .molecule-art,
+    .hero-image .molecule-behind,
+    .hero-image .hero-molecule,
+    .hero-image .science-mark,
+    .profile-wrap .molecule,
+    .profile-wrap .molecule-art,
+    .profile-wrap .molecule-behind,
+    .profile-wrap .hero-molecule,
+    .profile-wrap .science-mark,
+    .hero-media .molecule,
+    .hero-media .molecule-art,
+    .hero-media .molecule-behind,
+    .hero-media .hero-molecule,
+    .hero-media .science-mark,
+    .portrait-card .molecule,
+    .portrait-card .molecule-art,
+    .portrait-card .molecule-behind,
+    .portrait-card .hero-molecule,
+    .portrait-card .science-mark {
+      position: absolute !important;
+      z-index: 0 !important;
+      pointer-events: none !important;
+    }
+
+    .hero-visual::before,
+    .hero-visual::after,
+    .portrait-wrap::before,
+    .portrait-wrap::after,
+    .image-wrap::before,
+    .image-wrap::after,
+    .hero-image::before,
+    .hero-image::after,
+    .profile-wrap::before,
+    .profile-wrap::after,
+    .hero-media::before,
+    .hero-media::after,
+    .portrait-card::before,
+    .portrait-card::after {
+      z-index: 0 !important;
+      pointer-events: none !important;
+    }
+
+  
+    /* V12 non-destructive polish */
+    h1 {
+      font-size: clamp(3.05rem, 7vw, 6.1rem) !important;
+      line-height: 1.02 !important;
+      letter-spacing: -0.055em !important;
+      max-width: 780px;
+    }
+
+    .hero-copy .lead,
+    .hero p,
+    .hero-lead {
+      font-size: clamp(1.16rem, 1.9vw, 1.42rem) !important;
+      line-height: 1.78;
+    }
+
+    .section {
+      padding-block: clamp(78px, 9vw, 122px) !important;
+    }
+
+    .section-head h2,
+    .about-main h2,
+    .contact-panel h2 {
+      font-size: clamp(2.25rem, 4vw, 3.35rem) !important;
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+    }
+
+    .section-note {
+      font-size: clamp(1.08rem, 1.65vw, 1.22rem) !important;
+      line-height: 1.82 !important;
+      max-width: 760px;
+    }
+
+    .about-main p,
+    .card p,
+    .fit-item,
+    details p,
+    .proof-highlight span,
+    .form-card label,
+    .about-item span {
+      font-size: clamp(1.04rem, 1.25vw, 1.14rem) !important;
+    }
+
+    .photo-shell,
+    .photo-card,
+    .hero-visual,
+    .portrait-wrap,
+    .image-wrap,
+    .profile-wrap {
+      position: relative !important;
+      isolation: isolate !important;
+    }
+
+    .photo-molecule,
+    .hero-molecule,
+    .molecule,
+    .molecule-art,
+    .science-mark,
+    .molecule-behind {
+      z-index: 0 !important;
+      pointer-events: none !important;
+    }
+
+    .photo-card,
+    .hero-visual img,
+    .portrait-wrap img,
+    .image-wrap img,
+    .profile-wrap img,
+    img[alt="טל רובין"] {
+      position: relative !important;
+      z-index: 3 !important;
+    }
+
+    .mid-cta-section {
+      padding-block: 34px !important;
+      background: transparent !important;
+    }
+
+    .mid-cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 22px;
+      align-items: center;
+      background: linear-gradient(135deg, #19382d, #2e5e4e);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 30px;
+      padding: 28px;
+      color: #fff;
+      box-shadow: 0 22px 64px rgba(25,56,45,0.16);
+    }
+
+    .mid-cta h3 {
+      margin: 0 0 6px;
+      font-size: clamp(1.55rem, 2.5vw, 2.25rem);
+      letter-spacing: -0.035em;
+    }
+
+    .mid-cta p {
+      margin: 0;
+      color: rgba(255,255,255,0.75);
+      font-size: 1.08rem;
+    }
+
+    .testimonial-slots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .testimonial-slot {
+      background: #fffdf8;
+      border: 1px dashed rgba(46,94,78,0.28);
+      border-radius: 22px;
+      padding: 22px;
+      min-height: 170px;
+    }
+
+    .testimonial-slot strong {
+      display: block;
+      color: var(--green-dark, #19382d);
+      font-size: 1.12rem;
+      margin-bottom: 8px;
+    }
+
+    .testimonial-slot span {
+      color: var(--muted, #58655d);
+      font-size: 1rem;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      z-index: 80;
+      left: 18px;
+      bottom: 18px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--green, #2e5e4e);
+      color: white;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 18px 42px rgba(25,56,45,0.24);
+      text-decoration: none;
+      transition: transform 220ms ease, background 220ms ease;
+    }
+
+    .floating-whatsapp:hover {
+      transform: translateY(-3px) scale(1.03);
+      background: var(--green-dark, #19382d);
+    }
+
+    .floating-whatsapp svg {
+      width: 27px;
+      height: 27px;
+      fill: currentColor;
+    }
+
+    .card,
+    .fit-item,
+    .about-item,
+    details,
+    .chip {
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
+    }
+
+    .card:hover,
+    .fit-item:hover,
+    .about-item:hover,
+    details:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 26px 64px rgba(25,56,45,0.13);
+      border-color: rgba(46,94,78,0.25);
+    }
+
+    .chip:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 980px) {
+      .mid-cta,
+      .testimonial-slots {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body::before,
+      .molecule-break,
+      .photo-molecule {
+        opacity: 0.14 !important;
+      }
+
+      h1 {
+        font-size: clamp(2.72rem, 13vw, 4.1rem) !important;
+      }
+
+      .section {
+        padding-block: 70px !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn-primary {
+        animation: none !important;
+      }
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
+  </style>
+  <!-- version: v8, UI polish, molecule elements, final placeholders ready -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232e5e4e'/%3E%3Ccircle cx='20' cy='32' r='6' fill='%23f4ead9'/%3E%3Ccircle cx='44' cy='22' r='5' fill='%23f4ead9'/%3E%3Cpath d='M25 30 39 24' stroke='%23f4ead9' stroke-width='3'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="חזרה לראש הדף">
+          <strong>טל רובין</strong>
+          <span>כימיה · מדעים · הדרכה אקדמית</span>
+        </a>
+        <nav class="nav-links" aria-label="ניווט ראשי">
+          <a href="#about">אודות</a>
+          <a href="#fit">למי זה מתאים</a>
+          <a href="#topics">תחומים</a>
+          <a href="#process">איך זה עובד</a>
+          <a href="#faq">שאלות</a>
+        </nav>
+        <a class="btn btn-primary js-whatsapp" href="https://wa.me/972508148081" target="_blank" rel="noopener">וואטסאפ</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="container hero">
+        <div>
+          <div class="eyebrow">הדרכה אקדמית בכימיה לסטודנטים</div>
+          <h1><span class="hero-title-main">להבין את החומר</span><span class="hero-title-sub">ולהגיע רגועים למבחן.</span></h1>
+          <div class="title-accent" aria-hidden="true"></div>
+          <p class="hero-lead">
+            אני טל רובין, מנהל מעבדה, מתרגל אקדמי ומדריך במדעים מאז 2017. אני עוזר לסטודנטים לעשות סדר בכימיה, להבין את ההיגיון ולתרגל בצורה ברורה ומעשית.
+          </p>
+          <div class="hero-statement">
+            <strong>המטרה שלי היא לא להעביר אותך את המבחן.</strong><br />
+            המטרה שלי היא לגרום לכימיה סוף סוף להיות הגיונית.
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary js-whatsapp" href="https://wa.me/972508148081" target="_blank" rel="noopener">שלחו הודעה בוואטסאפ</a>
+            <a class="btn btn-secondary" href="#contact">השארת פרטים</a>
+          </div>
+          <p class="hero-note">אפשר בזום מכל מקום או פרונטלית מהרצליה עד חדרה, בשיעור יחיד, סדרת מפגשים או מרתון לקראת מבחן.</p>
+        </div>
+
+        <div class="hero-photo-wrap" aria-label="תמונה של טל רובין">
+          <div class="hero-photo-card">
+            <svg class="photo-molecule" viewBox="0 0 240 240" aria-hidden="true">
+              <line x1="44" y1="62" x2="104" y2="36"></line>
+              <line x1="104" y1="36" x2="158" y2="76"></line>
+              <line x1="158" y1="76" x2="132" y2="138"></line>
+              <line x1="132" y1="138" x2="66" y2="146"></line>
+              <line x1="66" y1="146" x2="44" y2="62"></line>
+              <line x1="132" y1="138" x2="190" y2="166"></line>
+              <circle cx="44" cy="62" r="10"></circle>
+              <circle cx="104" cy="36" r="7"></circle>
+              <circle cx="158" cy="76" r="10"></circle>
+              <circle cx="132" cy="138" r="8"></circle>
+              <circle cx="66" cy="146" r="7"></circle>
+              <circle cx="190" cy="166" r="11"></circle>
+            </svg>
+            <img src="tal.png" alt="טל רובין" width="840" height="1050" fetchpriority="high" decoding="async">
+          </div>
+          <div class="hero-credentials" aria-label="פרטים מקצועיים">
+            <div>
+              <strong>מתרגל אקדמי</strong>
+              <span>פוגש מקרוב את המקומות שבהם סטודנטים נתקעים.</span>
+            </div>
+            <div>
+              <strong>מנהל מעבדה</strong>
+              <span>חי מדע וכימיה גם מחוץ לשיעור.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="fit">
+        <div class="container">
+          <div class="section-head">
+            <h2>למי זה מתאים?</h2>
+            <p class="section-note">במקום להתחיל מפתרון קבוע, מתחילים מהמצב שלך: מה ברור, מה עדיין לא מתחבר, ומה יעזור להתקדם בדרך הכי יעילה.</p>
+          </div>
+          <div class="fit-list">
+            <div class="fit-item"><span class="check">✓</span><div>לסטודנטים שמרגישים שהחומר לא מתחבר, גם אחרי הרצאות וסיכומים.</div></div>
+            <div class="fit-item"><span class="check">✓</span><div>למי שיודע חלק מהתאוריה אבל נתקע כשהוא מגיע לשאלות ותרגילים.</div></div>
+            <div class="fit-item"><span class="check">✓</span><div>למי שמתכונן למבחן ורוצה לעשות סדר, לתרגל ולהגיע רגוע יותר.</div></div>
+            <div class="fit-item"><span class="check">✓</span><div>למי שמעדיף ללמוד באווירה פתוחה, תכלסית, עם מקום לשאלות ובלי לחץ מיותר.</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container about-grid">
+          <div class="about-main">
+            <h2>שלום, אני טל.</h2>
+            <p>אני בן 34, בוגר תואר ראשון במדעי הים והסביבה הימית במרכז האקדמי רופין.</p>
+            <p>ביום יום אני מנהל מעבדה בחברת AgTech, כך שמדע הוא לא רק משהו שאני מלמד - אלא גם משהו שאני עובד איתו.</p>
+            <p>במקביל אני מתרגל סטודנטים במרכז האקדמי רופין ומדריך ילדים, נוער וסטודנטים בנושאי מדעים וטבע.</p>
+            <p>התחלתי ללמד בשנת 2017 במסגרת סטודנטים מלמדים סטודנטים, ומשם גדלתי בהדרגה לעוד תחומים, מסגרות וקבוצות.</p>
+          </div>
+          <div class="about-list">
+            <div class="about-item">
+              <strong>מה אני הכי אוהב בהוראה?</strong>
+              <span>את הרגע שבו נושא שנראה מסובך פתאום מתחיל להיות ברור.</span>
+            </div>
+            <div class="about-item">
+              <strong>איך נראית הלמידה איתי?</strong>
+              <span>שיח פתוח, תכלסיות, הומור כשאפשר, יחס אישי והרבה דגש על הבנה אמיתית.</span>
+            </div>
+            <div class="about-item">
+              <strong>למה דווקא כימיה?</strong>
+              <span>זה הפורטה שלי. שם יש לי הכי הרבה ניסיון, שעות הוראה וסיפורי הצלחה.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>איך אני מלמד?</h2>
+            <p class="section-note accent-note">המטרה היא לעשות סדר, לסגור פערים ולתרגל בצורה ממוקדת, עד שהחומר מרגיש ברור יותר.</p>
+          </div>
+          <div class="cards-4">
+            <div class="card">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 2v6L4.6 18.2A2.6 2.6 0 0 0 6.9 22h10.2a2.6 2.6 0 0 0 2.3-3.8L14 8V2"/><path d="M8 2h8"/><path d="M7.5 16h9"/></svg></div>
+              <h3>הבנה לפני שינון</h3>
+              <p>קודם מבינים את ההיגיון. אחר כך התרגול הרבה יותר טבעי.</p>
+            </div>
+            <div class="card">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg></div>
+              <h3>שיעור תכלסי</h3>
+              <p>הסבר מסודר, תרגול משותף וחיבור למה שבאמת יופיע בקורס.</p>
+            </div>
+            <div class="card">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/><path d="M22 10v6"/></svg></div>
+              <h3>ניסיון מהאקדמיה</h3>
+              <p>כמתרגל אקדמי אני מכיר מקרוב את המקומות שבהם סטודנטים נתקעים.</p>
+            </div>
+            <div class="card">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2c1.9 0 3.5 4.5 3.5 10S13.9 22 12 22 8.5 17.5 8.5 12 10.1 2 12 2z"/><path d="M3.3 7c1-1.6 5.6-.2 10.3 2.5s7.6 6.6 6.7 8.2-5.6.2-10.3-2.5S2.4 8.6 3.3 7z"/><path d="M20.7 7c1 1.6-2 5.5-6.7 8.2s-9.3 4.1-10.3 2.5 2-5.5 6.7-8.2S19.8 5.4 20.7 7z"/></svg></div>
+              <h3>מדע גם מחוץ לכיתה</h3>
+              <p>המדע פוגש אותי גם במעבדה, לא רק בספרים ובמצגות.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="molecule-break" aria-hidden="true">
+        <div class="container">
+          <svg viewBox="0 0 760 120" role="img">
+            <line x1="92" y1="60" x2="172" y2="28"></line>
+            <line x1="172" y1="28" x2="246" y2="66"></line>
+            <line x1="246" y1="66" x2="330" y2="38"></line>
+            <line x1="330" y1="38" x2="416" y2="70"></line>
+            <line x1="416" y1="70" x2="506" y2="40"></line>
+            <line x1="506" y1="40" x2="604" y2="68"></line>
+            <circle cx="92" cy="60" r="10"></circle>
+            <circle cx="172" cy="28" r="7"></circle>
+            <circle cx="246" cy="66" r="12"></circle>
+            <circle cx="330" cy="38" r="7"></circle>
+            <circle cx="416" cy="70" r="10"></circle>
+            <circle cx="506" cy="40" r="7"></circle>
+            <circle cx="604" cy="68" r="12"></circle>
+          </svg>
+        </div>
+      </section>
+
+      <section class="section mid-cta-section">
+        <div class="container">
+          <div class="mid-cta">
+            <div>
+              <h3>מרגיש שהחומר עדיין לא מתחבר?</h3>
+              <p>אפשר לעצור כאן, לשלוח הודעה קצרה ולראות איך עושים סדר.</p>
+            </div>
+            <a class="btn btn-primary js-whatsapp" href="https://wa.me/972508148081?text=%D7%94%D7%99%D7%99%20%D7%98%D7%9C%2C%20%D7%94%D7%97%D7%95%D7%9E%D7%A8%20%D7%A2%D7%93%D7%99%D7%99%D7%9F%20%D7%9C%D7%90%20%D7%9E%D7%AA%D7%97%D7%91%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A2%D7%96%D7%A8%D7%94" target="_blank" rel="noopener">שלחו הודעה</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="topics">
+        <div class="container">
+          <div class="section-head">
+            <h2>מה אפשר ללמוד?</h2>
+            <p class="section-note">הדגש המרכזי הוא כימיה לסטודנטים, לצד תחומים מדעיים נוספים שבהם יש לי ניסיון בהדרכה ובתרגול.</p>
+          </div>
+          <div class="topics">
+            <div class="topic-main">
+              <h3>כימיה לסטודנטים</h3>
+              <p>שיעורים פרטיים, הכנה למבחנים, מרתונים ותרגול ממוקד לפי הסילבוס והחומר של הקורס.</p>
+              <div class="chips">
+                <span class="chip">כימיה כללית</span>
+                <span class="chip">כימיה פיזיקלית</span>
+                <span class="chip">כימיה אורגנית</span>
+                <span class="chip">תרגול שאלות</span>
+                <span class="chip">הכנה למבחנים</span>
+                <span class="chip">מרתונים לקבוצות</span>
+              </div>
+            </div>
+            <div class="topic-side">
+              <div class="card">
+                <h3>מדעים נוספים</h3>
+                <p>ביולוגיה של התא, אוקיינוגרפיה פיזיקלית, ימאות ונושאים מדעיים נוספים בהתאם לרמת הלימוד והצורך.</p>
+              </div>
+              <div class="card">
+                <h3>תלמידים ונוער</h3>
+                <p>אפשרי גם תגבור במדעים לתלמידים, בעיקר כשיש צורך בהסבר רגוע וברור של הבסיס.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="process">
+        <div class="container process">
+          <div class="section-head">
+            <h2>איך נראה שיעור?</h2>
+            <p class="section-note">אפשר ללמוד בזום מכל מקום או פרונטלית מהרצליה עד חדרה. בהתחלה עושים סדר ובונים בסיס. לקראת מבחן עוברים ליותר תרגול ופתרון בעיות.</p>
+          </div>
+          <div class="cards-4">
+            <div class="card process-card">
+              <h3>ממפים את המצב</h3>
+              <p>מבינים מה למדת, איפה אתה נתקע ומה המטרה הקרובה.</p>
+            </div>
+            <div class="card process-card">
+              <h3>עושים סדר</h3>
+              <p>מפרקים את הנושא ומחברים בין העקרונות.</p>
+            </div>
+            <div class="card process-card">
+              <h3>מתרגלים יחד</h3>
+              <p>פותרים שאלות, בודקים דרך חשיבה ומבינים טעויות.</p>
+            </div>
+            <div class="card process-card">
+              <h3>ממשיכים לתרגול</h3>
+              <p>אפשר לקבל חומר נוסף לתרגול לפי הצורך.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="proof-box">
+            <div class="proof-highlight">
+              <strong>יש סטודנטים שמגיעים בלי לדעת איך להתחיל ללמוד כימיה, ואחרי כמה שיעורים כבר מרגישים שהחומר מתחיל להסתדר.</strong>
+              <span>חלקם הגיעו בהמשך גם לציונים גבוהים מאוד. זה לא קסם ולא הבטחה. זה שילוב של סדר, תרגול והבנה.</span>
+            </div>
+            <div>
+              <h2>מקום להמלצות אמיתיות</h2>
+              <p class="quote-placeholder">האזור הזה מוכן להחלפה בהמלצות אמיתיות, צילומי מסך או סיפורי הצלחה.</p>
+              <div class="testimonial-slots">
+                <div class="testimonial-slot"><strong>שם פרטי - קורס</strong><span>כאן תיכנס המלצה אמיתית עם הקשר ברור: קורס, מוסד לימודים ונקודת פתיחה.</span></div>
+                <div class="testimonial-slot"><strong>צילום מסך</strong><span>אפשר לשלב הודעת וואטסאפ אמיתית, באישור הסטודנט.</span></div>
+                <div class="testimonial-slot"><strong>לפני ואחרי</strong><span>מקום לסיפור קצר: איך הגעתי, מה עשינו ומה השתפר.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="faq">
+        <div class="container">
+          <div class="section-head">
+            <h2>שאלות נפוצות</h2>
+            <p class="section-note faq-intro">כמה תשובות קצרות שיכולות לעזור לעשות סדר לפני שמתחילים.</p>
+          </div>
+          <div class="faq">
+            <details open>
+              <summary>אני לא מבין כימיה בכלל. זה מתאים לי?</summary>
+              <p>כן. זה משפט שאני שומע הרבה. השיעור מתחיל מהמקום שבו אתה נמצא, גם אם כרגע הכול מרגיש מבולגן.</p>
+            </details>
+            <details>
+              <summary>אפשר ללמוד בזום?</summary>
+              <p>כן. אפשר בזום מכל מקום. שיעורים פרונטליים מתקיימים בהתאם לזמינות באזור הרצליה עד חדרה.</p>
+            </details>
+            <details>
+              <summary>אפשר להגיע רק לפני מבחן?</summary>
+              <p>כן. אפשר לקבוע שיעור נקודתי, כמה מפגשים ממוקדים או מרתון לקראת מבחן. ככל שמתחילים מוקדם יותר, בדרך כלל אפשר לעבוד רגוע יותר.</p>
+            </details>
+            <details>
+              <summary>אתה מתאים את השיעור לקורס הספציפי שלי?</summary>
+              <p>כן. עובדים לפי הסילבוס, המצגות, התרגולים, מבחני העבר והנושאים שאתה צריך לחזק.</p>
+            </details>
+            <details>
+              <summary>אתה נותן חומר לתרגול?</summary>
+              <p>אני לא נותן שיעורי בית חובה, אבל בהחלט יכול לספק חומר לתרגול ולעזור לכוון במה כדאי להתמקד.</p>
+            </details>
+            <details>
+              <summary>כמה עולה שיעור?</summary>
+              <p>מחירים נקבעים בשיחה בהתאם לסוג המפגש, פורמט הלמידה, אורך המפגש והאם מדובר בשיעור פרטי, קבוצה או מרתון.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-grid">
+          <div class="contact-panel">
+            <h2>רוצים לעשות סדר בכימיה?</h2>
+            <p>שלחו הודעה קצרה ונבין איפה אתם עומדים, מה הקורס ומה הדרך הנכונה להתקדם.</p>
+            <p class="small">זום מכל מקום. פרונטלי מהרצליה עד חדרה. מחירים בשיחה.</p>
+            <div class="contact-actions">
+              <a class="btn btn-primary js-whatsapp" href="https://wa.me/972508148081" target="_blank" rel="noopener">דברו איתי בוואטסאפ</a>
+              <a class="btn btn-secondary" href="mailto:talru7@gmail.com?subject=%D7%A4%D7%A0%D7%99%D7%99%D7%94%20%D7%9C%D7%98%D7%9C%20%D7%A8%D7%95%D7%91%D7%99%D7%9F">שליחת מייל</a>
+            </div>
+            <p class="small">וואטסאפ הוא ערוץ הפנייה הראשי. אפשר גם לשלוח מייל לכתובת talru7@gmail.com.</p>
+          </div>
+          <div class="form-card">
+            <form id="contact-form">
+              <div class="field">
+                <label for="name">שם</label>
+                <input id="name" name="name" type="text" autocomplete="name" placeholder="איך קוראים לך?" required>
+              </div>
+
+              <div class="field">
+                <label for="course">קורס או נושא</label>
+                <input id="course" name="course" type="text" placeholder="למשל: כימיה אורגנית, כימיה כללית..." required>
+              </div>
+
+              <div class="field">
+                <label for="contact">טלפון או מייל</label>
+                <input id="contact" name="contact" type="text" placeholder="איך הכי נוח לחזור אליך?" required>
+              </div>
+
+              <div class="field">
+                <label for="message">הודעה קצרה, לא חובה</label>
+                <textarea id="message" name="message" placeholder="אפשר לכתוב איפה אתה עומד כרגע ומה הקורס הקרוב."></textarea>
+              </div>
+
+              <button class="btn btn-primary" type="submit">שליחת הפרטים בוואטסאפ</button>
+              <p id="form-note" class="form-note" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© <span id="year"></span> טל רובין. הדרכה אקדמית בכימיה ובמדעים.</div>
+    </footer>
+  </div>
+
+  
+  <a class="floating-whatsapp js-whatsapp" href="https://wa.me/972508148081?text=%D7%94%D7%99%D7%99%20%D7%98%D7%9C%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%A2%D7%9C%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%91%D7%9B%D7%99%D7%9E%D7%99%D7%94" target="_blank" rel="noopener" aria-label="פתיחת שיחה בוואטסאפ">
+    <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16.02 3.2c-7.06 0-12.8 5.62-12.8 12.55 0 2.2.59 4.34 1.7 6.22L3.1 28.8l7.05-1.79a13.1 13.1 0 0 0 5.87 1.39c7.06 0 12.8-5.62 12.8-12.55S23.08 3.2 16.02 3.2Zm0 22.97c-1.9 0-3.76-.5-5.38-1.45l-.39-.23-4.18 1.06 1.09-4.02-.26-.42a10.24 10.24 0 0 1-1.45-5.26c0-5.7 4.74-10.33 10.57-10.33s10.57 4.63 10.57 10.33-4.74 10.32-10.57 10.32Zm5.8-7.74c-.32-.16-1.9-.92-2.2-1.02-.29-.11-.5-.16-.72.16-.21.31-.82 1.02-1 1.23-.19.21-.37.24-.69.08-.32-.16-1.34-.48-2.55-1.54-.94-.83-1.58-1.85-1.76-2.16-.18-.32-.02-.49.14-.64.14-.14.32-.37.48-.55.16-.18.21-.31.32-.52.11-.21.05-.39-.03-.55-.08-.16-.72-1.7-.98-2.33-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.55.08-.84.39-.29.31-1.1 1.05-1.1 2.57s1.13 2.98 1.29 3.18c.16.21 2.22 3.32 5.38 4.65.75.32 1.34.51 1.8.65.76.24 1.45.21 2 .13.61-.09 1.9-.76 2.17-1.49.27-.73.27-1.36.19-1.49-.08-.13-.29-.21-.61-.37Z"/></svg>
+  </a>
+
+
+  <script>
+    const config = {
+      whatsappNumber: "972508148081",
+      whatsappText: "היי טל, אשמח לבדוק אפשרות לשיעור בכימיה",
+      email: "talru7@gmail.com"
+    };
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.querySelectorAll(".js-whatsapp").forEach((link) => {
+      const text = encodeURIComponent(config.whatsappText);
+      link.href = `https://wa.me/${config.whatsappNumber}?text=${text}`;
+    });
+
+    const form = document.getElementById("contact-form");
+    if (form) {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const data = new FormData(form);
+        const subject = encodeURIComponent("פנייה מהאתר - טל רובין");
+        const body = encodeURIComponent(
+          `שם: ${data.get("name") || ""}
+` +
+          `טלפון: ${data.get("phone") || ""}
+` +
+          `קורס או נושא: ${data.get("course") || ""}
+` +
+          `מוסד לימודים: ${data.get("institution") || ""}
+` +
+          `הודעה: ${data.get("message") || ""}`
+        );
+        return;
+      });
+    }
+  
+    const talContactForm = document.getElementById('contact-form');
+    const talFormNote = document.getElementById('form-note');
+
+    if (talContactForm) {
+      talContactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const name = document.getElementById('name')?.value?.trim() || '';
+        const course = document.getElementById('course')?.value?.trim() || '';
+        const contact = document.getElementById('contact')?.value?.trim() || '';
+        const message = document.getElementById('message')?.value?.trim() || '';
+
+        const text = [
+          'היי טל, אשמח לעשות סדר בחומר.',
+          '',
+          `שם: ${name}`,
+          `קורס או נושא: ${course}`,
+          `טלפון או מייל: ${contact}`,
+          message ? `הודעה: ${message}` : ''
+        ].filter(Boolean).join('\n');
+
+        if (talFormNote) {
+          talFormNote.textContent = 'מעולה. אני פותח לך שיחת וואטסאפ עם הפרטים שמילאת.';
+        }
+
+        window.open(`https://wa.me/972508148081?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+      });
+    }
+
+  </script>
+</body>
+</html>
